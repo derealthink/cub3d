@@ -22,15 +22,39 @@ char    **del_empty(char **map)
     return (map);
 }
 
-char    **trim_lead(char **map)
+char    *trim_lead(char *line)
 {
     int i;
-    int j;
 
+    if (!line)
+        return (NULL);
     i = 0;
-    while (map[i] !== NULL)
+    while (is_space(line[i]))
+        i++;
+    if (line[i +1] && (line[i + 1] != '1'))
     {
-        
+        while(*line <= 32)
+            line++;
     }
+    return (line);
+}
+
+char    *trim_trail(char *line)
+{
+    int len;
+
+    if (!line)
+        return (NULL);
+    len = ft_strlen(line);
+    len--;
+    if (line[0] =! '1')
+    {
+        while(is_space(line[len]))
+        {
+            line[len] = '\0';
+            len--;
+        }
+    }
+    return (line);
 }
 
