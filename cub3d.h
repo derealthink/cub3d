@@ -103,11 +103,18 @@ typedef struct s_config
 	char	*so;
 	char	*ea;
 	char	*we;
-	int		*cc;
-	int		*fc;
-}
+	char	**cc;
+	char	**fc;
+}	t_config;
 
-int is_empty_line(char *line);
-int is_space(char c);
+typedef struct	s_cube
+{
+	t_config	*id;
+	char		**map;
+}	t_cube;
+
+int 	is_empty_line(char *line);
+int 	is_space(char c);
+char    **map(char *file)
 
 #endif
