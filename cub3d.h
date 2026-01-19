@@ -96,4 +96,18 @@ typedef struct s_map
 	t_img		img_buffer;
 }	t_map;
 */
+
+typedef struct s_config
+{
+	char	*no;
+	char	*so;
+	char	*ea;
+	char	*we;
+	int		*cc;
+	int		*fc;
+}
+
+int is_empty_line(char *line);
+int is_space(char c);
+
 #endif
