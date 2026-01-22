@@ -107,6 +107,27 @@ typedef struct s_config
 	char	**fc;
 }	t_config;
 
+typedef	struct s_map
+{
+	char	**grid;
+}	t_map;
+
+typedef enum e_line
+{
+	ID_LINE,
+	C_LINE,
+	MAP_LINE,
+}	t_line;
+
+typedef struct s_list
+{
+	char			*line;
+	t_line			type;
+	struct s_list	*next;
+	int				len;
+	int				valid;
+}	t_list;
+
 typedef struct	s_cube
 {
 	t_config	*id;
@@ -115,6 +136,10 @@ typedef struct	s_cube
 
 int 	is_empty_line(char *line);
 int 	is_space(char c);
-char    **map(char *file)
+char    **call_map(char *file);
+char    **prep_id(char **map);
+t_list	*parse_to_list(char *file);
+void	free_list(t_list *head);
+void	free_map(char **map);
 
 #endif

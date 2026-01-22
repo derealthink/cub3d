@@ -20,3 +20,31 @@ int is_empty_line(char *line)
     }
     return (line[i] == '\0');
 }
+
+void	free_list(t_list *head)
+{
+	t_list	*tmp;
+
+	while (head)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp->line);
+		free(tmp);
+	}
+}
+
+void	free_map(char **map)
+{
+	int	i;
+
+	if (!map)
+		return ;
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}

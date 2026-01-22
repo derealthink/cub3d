@@ -64,7 +64,7 @@ static char  **create_map(int count, char *file)
     return (res);
 }
 
-char    **map(char *file)
+char    **call_map(char *file)
 {
     int     count;
     int     fd;
