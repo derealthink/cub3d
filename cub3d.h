@@ -112,27 +112,33 @@ typedef	struct s_map
 	char	**grid;
 }	t_map;
 
-typedef enum e_line
+typedef enum e_tline
 {
-	ID_LINE,
-	C_LINE,
+	NO_LINE,
+	SO_LINE,
+	EA_LINE,
+	WE_LINE,
+	CC_LINE,
+	CF_LINE,
 	MAP_LINE,
-}	t_line;
+}	t_tline;
 
-typedef struct s_list
+typedef struct s_ulines
 {
 	char			*line;
-	t_line			type;
+	t_tline			type;
 	struct s_list	*next;
 	int				len;
 	int				valid;
-}	t_list;
+}	t_ulines;
+
 
 typedef struct	s_cube
 {
 	t_config	*id;
 	char		**map;
 }	t_cube;
+
 
 int 	is_empty_line(char *line);
 int 	is_space(char c);

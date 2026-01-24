@@ -1,8 +1,8 @@
 #include "cub3d.h"
 
-t_list	*create_node(char *line, t_line type)
+t_list	*create_node(char *line, t_tline type)
 {
-	t_list	*node;
+	t_ulines	*node;
 
 	node = malloc(sizeof(t_list));
 	if (!node)
@@ -37,18 +37,22 @@ void	add_to_list(t_list **head, t_list *new_node)
 	tmp->next = new_node;
 }
 
-t_line	line_type(char *line)
+t_tline	line_type(char *line)
 {
 	if (!line)
 		return (MAP_LINE);
-	if (ft_strncmp(line, "NO ", 3) == 0 ||
-		ft_strncmp(line, "SO ", 3) == 0 ||
-		ft_strncmp(line, "EA ", 3) == 0 ||
-		ft_strncmp(line, "WE ", 3) == 0)
-		return (ID_LINE);
-	if (ft_strncmp(line, "C ", 2) == 0 ||
-		ft_strncmp(line, "F ", 2) == 0)
-		return (C_LINE);
+	if (ft_strncmp(line, "NO ", 3) == 0)
+		return (NO_LINE);
+	if (ft_strncmp(line, "SO ", 3) == 0)
+		return (SO_LINE);
+	if (ft_strncmp(line, "EA ", 3) == 0)
+		return (EA_LINE);
+	if (ft_strncmp(line, "WE ", 3) == 0)
+		return (WE_LINE);
+	if (ft_strncmp(line, "C ", 2) == 0)
+		return (CC_LINE);
+	if (ft_strncmp(line, "F ", 2) == 0)
+		return (CF_LINE);
 	return (MAP_LINE);
 }
 
@@ -58,7 +62,7 @@ t_list	*parse_to_list(char *file)
 	t_list	*head;
 	t_list	*node;
 	int		i;
-	t_line	type;
+	t_tline	type;
 
 	map = call_map(file);
 	if (!map)
@@ -84,6 +88,5 @@ t_list	*parse_to_list(char *file)
 	free_map(map);
 	return (head);
 }
-
 
 
