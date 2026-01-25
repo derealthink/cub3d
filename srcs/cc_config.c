@@ -9,7 +9,6 @@ void    cc_config(t_ulines *head, t_config *id)
 
     current = head;
     i = 1;
-    j = 0;
     while (current)
     {
         if (current->type == CC_LINE)
@@ -17,13 +16,8 @@ void    cc_config(t_ulines *head, t_config *id)
             res = ft_split(current->line, ',');
             if (!res || !res[1])
                 return ;
-            while(res[i])
-            {
-                id->cc[j] = ft_strdup(res[i]);
-                i++;
-                j++;
-            }
-            free_split(res);
+            free(res[0]);
+            id->cc = res;
         }
         current = current->next;
     }
@@ -33,26 +27,20 @@ void    cf_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
-    int         fd;
+    int         i;
+    int         j;
 
     current = head;
+    i = 1;
     while (current)
     {
-        if (current->type == NO_LINE)
+        if (current->type == CF_LINE)
         {
-            res = ft_split(current->line, ' ');
+            res = ft_split(current->line, ',');
             if (!res || !res[1])
                 return ;
-            fd = open(res[1], O_RDONLY);
-            if (fd == -1)
-            {
-                perror("NO texture");
-                free_split(res);
-                return ;
-            }
-            close(fd);
-            id->no = ft_strdup(res[1]);
-            free_split(res);
+            free(res[0]);
+            id->cf = res;
         }
         current = current->next;
     }
@@ -60,5 +48,19 @@ void    cf_config(t_ulines *head, t_config *id)
 
 int range_val(char **arr)
 {
+    int i;
+    int num;
+    int count;
 
+    i = 0;
+    num = 0;
+    count = 0;
+    while (arr[i] != NULL)
+    {
+        num = ft_atoi(arr[i]);
+        if (num >= 0 && num <= 255)
+            count++;
+        i++;
+    }
+    return (count == 3);
 }

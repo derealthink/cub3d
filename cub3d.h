@@ -104,7 +104,7 @@ typedef struct s_config
 	char	*ea;
 	char	*we;
 	char	**cc;
-	char	**fc;
+	char	**cf;
 }	t_config;
 
 typedef	struct s_map
