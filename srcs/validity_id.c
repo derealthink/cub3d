@@ -63,7 +63,7 @@ int val_mp_count(t_ulines *head)
             mp_count++;
         current = current->next;
     }
-    if (mp_count > 0)
+    if (mp_count > 2)
         return (1);
     return (0);
 }
