@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:25:05 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/26 18:01:37 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/27 15:46:32 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	init_mlx(t_data *game)
 	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "cub3d");
 	if (!game->win)
 		clean_exit(game, error_msg(ERR_MLX_START, 1));
-	init_img(game, &game->minimap, WIDTH, HEIGHT);
+	init_image(game, &game->minimap, MINI_W, MINI_H);
 	return ;
 }
 
-void	init_img(t_data *game, t_img *image, int width, int height)
+void	init_image(t_data *game, t_img *image, int width, int height)
 {
 	init_img_data(image);
 	image->img = mlx_new_image(game->mlx, width, height);

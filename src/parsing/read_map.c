@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:20:51 by uponci            #+#    #+#             */
-/*   Updated: 2026/01/27 14:11:04 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/27 15:24:47 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,4 @@ char    **call_map(char *file)
     map = create_map(count, file);
 
     return (map);
-
 }
-

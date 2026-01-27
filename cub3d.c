@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:12:14 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/27 14:20:00 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/27 17:27:39 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ int main(int argc, char **argv)
 //	if (parse_args(&game, argv) != 0)
 //		return (1);
 game.map = call_map(argv[1]);
+game.map_height = get_map_height(game.map);
+game.map_width = get_map_width(game.map);
 set_player_for_test(&game.player);
-init_player_direction(&game); // in parse_args
+//init_player_direction(&game); // da spostare in parse_args?
 
 	init_mlx(&game);
 	print_infos();

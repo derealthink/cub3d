@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/27 14:08:58 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/27 16:15:48 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # define WND_NAME "cub3d"
 # define WIDTH 800
 # define HEIGHT 600
+# define IMG_PXL 6
+# define MINI_W 300
+# define MINI_H 300
 
 # define SPEED 0.01
 
@@ -87,6 +90,8 @@ typedef struct s_data
 	int			win_width;
 //	t_mapinfo	mapinfo;
 	char		**map;
+	int			map_height;
+	int			map_width;
 	t_player	player;
 	t_config	*id; //da rinominare texture_id
 //	int			**texture_pixels;

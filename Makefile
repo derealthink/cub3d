@@ -6,7 +6,7 @@
 #    By: aielo <aielo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/24 17:03:34 by aielo             #+#    #+#              #
-#    Updated: 2026/01/27 14:22:21 by aielo            ###   ########.fr        #
+#    Updated: 2026/01/27 15:31:55 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ EXIT_SRCS 	= $(EXIT_DIR)/error.c \
 				$(EXIT_DIR)/exit.c
 
 PARS_SRCS 	= $(PARS_DIR)/read_map.c \
+				$(PARS_DIR)/map_config.c
 
 RENDER_SRCS = $(RENDER_DIR)/render.c
 
@@ -111,7 +112,7 @@ val: $(NAME)
 		--leak-check=full \
 		--show-leak-kinds=all \
 		--track-origins=yes \
-		./$(NAME) test
+		./$(NAME) ./maps/map2.cub
 
 valre: re val
 
