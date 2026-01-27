@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "parsing.h"
 
 int val_txt_count(t_ulines *head)
 {

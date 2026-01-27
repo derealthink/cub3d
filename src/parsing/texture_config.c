@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "parsing.h"
 
 void    no_config(t_ulines *head, t_config *id)
 {

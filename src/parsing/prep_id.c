@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "parsing.h"
 
 char    **del_empty(char **map)
 {
@@ -74,5 +74,3 @@ char    **prep_id(char **map)
     map = del_empty(map);// in case a line becomes empty
     return (map);
 }
-
-

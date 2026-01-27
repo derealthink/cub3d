@@ -1,6 +1,6 @@
-#include "cub3d.h"
+#include "parsing.h"
 
-t_list	*create_node(char *line, t_tline type)
+t_ulines	*create_node(char *line, t_tline type)
 {
 	t_ulines	*node;
 
@@ -20,9 +20,9 @@ t_list	*create_node(char *line, t_tline type)
 	return (node);
 }
 
-void	add_to_list(t_list **head, t_list *new_node)
+void	add_to_list(t_ulines **head, t_ulines *new_node)
 {
-	t_list	*tmp;
+	t_ulines	*tmp;
 
 	if (!head || !new_node)
 		return ;
@@ -49,18 +49,18 @@ t_tline	line_type(char *line)
 		return (EA_LINE);
 	if (ft_strncmp(line, "WE ", 3) == 0)
 		return (WE_LINE);
-	if (ft_strncmp(line, "C ", 2) == 0)
+	if (ft_strncmp(line, "CC", 2) == 0)
 		return (CC_LINE);
-	if (ft_strncmp(line, "F ", 2) == 0)
+	if (ft_strncmp(line, "CF", 2) == 0)
 		return (CF_LINE);
 	return (MAP_LINE);
 }
 
-t_list	*parse_to_list(char *file)
+t_ulines	*parse_to_list(char *file)
 {
 	char	**map;
-	t_list	*head;
-	t_list	*node;
+	t_ulines	*head;
+	t_ulines	*node;
 	int		i;
 	t_tline	type;
 
@@ -88,5 +88,3 @@ t_list	*parse_to_list(char *file)
 	free_map(map);
 	return (head);
 }
-
-

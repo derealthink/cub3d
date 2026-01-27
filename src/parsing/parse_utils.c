@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "parsing.h"
 
 int is_space(char c)
 {
@@ -21,9 +21,9 @@ int is_empty_line(char *line)
     return (line[i] == '\0');
 }
 
-void	free_list(t_list *head)
+void	free_list(t_ulines *head)
 {
-	t_list	*tmp;
+	t_ulines	*tmp;
 
 	while (head)
 	{

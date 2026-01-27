@@ -6,12 +6,13 @@
 #    By: aielo <aielo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/24 17:03:34 by aielo             #+#    #+#              #
-#    Updated: 2026/01/07 16:49:34 by aielo            ###   ########.fr        #
+#    Updated: 2026/01/27 14:22:21 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 
+# Libraries
 LIB_DIR = Libft
 LIB_NAME = ft
 LIB_LIB = $(LIB_DIR)/lib$(LIB_NAME).a
@@ -19,22 +20,66 @@ LIB_INC = $(LIB_DIR)
 
 MLX_DIR = mlx_linux
 
-SRC_DIR = src
-UTIL_DIR = utils
+# Directories
+INCLUDES 	= includes
+OBJ_DIR 	= obj
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-CEXTRA_INC = -I. -I$(LIB_INC)
-CEXTRA_LIB = -L$(LIB_DIR) -l$(LIB_NAME)
+BUILT_DIR 	= src/builtins
+CONFIG_DIR	= src/configuration
+EXEC_DIR 	= src/execution
+EXIT_DIR	= src/exit
+PARS_DIR 	= src/parsing
+RENDER_DIR 	= src/render
+UTILS_DIR 	= src/utils
 
-SOURCES = cub3d.c
+# Sources
+CONFIG_SRCS	= $(CONFIG_DIR)/init_data.c \
+				$(CONFIG_DIR)/init_mlx.c
 
-OBJECTS = $(SOURCES:.c=.o)
+EXEC_SRCS 	= $(EXEC_DIR)/key_input.c \
+				$(EXEC_DIR)/player_direction.c \
+				$(EXEC_DIR)/player_movements.c \
+				$(EXEC_DIR)/player_position.c \
+				$(EXEC_DIR)/player_rotation.c
 
-all: libft mlx_linux $(NAME)
+EXIT_SRCS 	= $(EXIT_DIR)/error.c \
+				$(EXIT_DIR)/exit.c
 
-$(NAME): $(LIB_LIB) $(OBJECTS)
-	$(CC) -g $(OBJECTS) $(CEXTRA_INC) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(CEXTRA_LIB)
+PARS_SRCS 	= $(PARS_DIR)/read_map.c \
+
+RENDER_SRCS = $(RENDER_DIR)/render.c
+
+UTILS_SRCS 	= $(UTILS_DIR)/print_logo.c \
+				$(UTILS_DIR)/tests.c
+
+SOURCES 	= cub3d.c \
+				$(CONFIG_SRCS) \
+				$(EXEC_SRCS) \
+				$(EXIT_SRCS) \
+				$(PARS_SRCS) \
+				$(RENDER_SRCS) \
+				$(UTILS_SRCS)
+
+# Objects
+OBJECTS 	= $(SOURCES:%.c=$(OBJ_DIR)/%.o)
+
+# Compiler
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+CEXTRA_INC	= -I. -I$(LIB_INC) -I$(INCLUDES)
+CEXTRA_LIB	= -L$(LIB_DIR) -l$(LIB_NAME)
+
+# Dependency
+DEPENDS		= $(OBJECTS:.o=.d)
+
+# Rules
+all: $(OBJ_DIR) libft mlx_linux $(NAME)
+
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
+
+$(NAME): $(OBJECTS) | $(LIB_LIB)
+	$(CC) $(CFLAGS) $(CEXTRA_INC) $(OBJECTS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) $(CEXTRA_LIB)
 
 libft:
 	$(MAKE) -C $(LIB_DIR)
@@ -43,11 +88,14 @@ mlx_linux:
 	cd $(MLX_DIR) && chmod 777 configure && cd ..
 	$(MAKE) -C $(MLX_DIR)
 
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(CEXTRA_INC) -I/usr/include -I. -Imlx_linux -O3 -c $< -o $@
 
+-include $(DEPENDS)
+
 clean:
-	rm -f $(OBJECTS)
+	rm -rf $(OBJ_DIR)
 	$(MAKE) -C $(LIB_DIR) clean
 	$(MAKE) -C $(MLX_DIR) clean
 
@@ -57,4 +105,14 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re libft mlx_linux
+# Valgrind rules
+val: $(NAME)
+	valgrind \
+		--leak-check=full \
+		--show-leak-kinds=all \
+		--track-origins=yes \
+		./$(NAME) test
+
+valre: re val
+
+.PHONY: all clean fclean re libft mlx_linux val valre

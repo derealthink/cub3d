@@ -1,11 +1,11 @@
-#include "cub3d.h"
+#include "parsing.h"
 
 void    cc_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
     int         i;
-    int         j;
+//    int         j;
 
     current = head;
     i = 1;
@@ -28,7 +28,7 @@ void    cf_config(t_ulines *head, t_config *id)
     t_ulines    *current;
     char        **res;
     int         i;
-    int         j;
+//    int         j;
 
     current = head;
     i = 1;
