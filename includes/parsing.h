@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 14:02:49 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/27 17:33:52 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/27 17:35:09 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,10 @@ int 	    is_space(char c);
 char        **call_map(char *file);
 char        **prep_id(char **map);
 t_ulines	*parse_to_list(char *file);
-<<<<<<< HEAD
-
-=======
+int get_map_height(char **map);
+int get_map_width(char **map);
 void	    free_list(t_ulines *head);
 void    	free_map(char **map);
 int         val_txt_count(t_ulines *head);
->>>>>>> 85091d6ec09047247d8c51651c74dfadbec78529
 
 #endif
