@@ -64,3 +64,17 @@ int range_val(char **arr)
     }
     return (count == 3);
 }
+
+
+char    *clean_colors(char *line)
+{
+    int i;
+
+    i = 0;
+    if (!line)
+        return (NULL);
+    while(!ft_isdigit(line[i]))
+        i++;
+    return (&line[i]);
+}
+

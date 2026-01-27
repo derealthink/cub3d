@@ -48,6 +48,30 @@ int val_cc_count(t_ulines *head)
     return (0); 
 }
 
+int is_dig_cc(t_ulines *head)
+{
+    t_ulines    *current;
+    int         d;
+
+    current = head;
+    d = 0;
+    while (current)
+    {
+        if (current->type == CC_LINE)
+        {
+            if (ft_isdigit(current->line))
+                d = 1;
+        }
+        if (current->type == CF_LINE && d)
+        {
+            if (ft_isdigit(current->line))
+                return (1);
+        }
+        current = current->next;
+    }
+    return (0);
+}
+
 int val_mp_count(t_ulines *head)
 {
     int         mp_count;

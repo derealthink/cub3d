@@ -116,5 +116,34 @@ void    ea_config(t_ulines *head, t_config *id)
     }
 }
 
+t_ulines    *id_config(char *file, t_config *id)
+{
+    t_ulines    *head;
+
+    head = parse_to_list(file);
+    if (val_txt_count(head))
+    {
+        no_config(head, id);
+        so_config(head, id);
+        ea_config(head, id);
+        we_config(head, id);
+    }
+    if (val_cc_count(head) && is_dig_cc(head))
+    {
+        cc_config(head, id);
+        cf_config(head, id);
+    }
+    //add check to make sure id elements are before map elements
+    while (head)
+    {
+        if (head->type != MAP_LINE)
+            free(head);
+        head = head->next;
+    }
+    clean_colors(id->cc);
+    clean_colors(id->cf);
+    return (head);
+}
+
 
 
