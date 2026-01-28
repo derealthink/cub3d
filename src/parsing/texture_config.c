@@ -116,19 +116,19 @@ void    ea_config(t_ulines *head, t_config *id)
     }
 }
 
-t_ulines    *id_config(char *file, t_config *id)
+t_ulines    *id_config(char *file, t_config *id, t_valid *d)
 {
     t_ulines    *head;
 
     head = parse_to_list(file);
-    if (val_txt_count(head))
+    if (val_txt_count(head, d))
     {
         no_config(head, id);
         so_config(head, id);
         ea_config(head, id);
         we_config(head, id);
     }
-    if (val_cc_count(head) && is_dig_cc(head))
+    if (val_cc_count(head, d) && is_dig_cc(head))
     {
         cc_config(head, id);
         cf_config(head, id);
