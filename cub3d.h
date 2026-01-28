@@ -38,6 +38,16 @@ typedef struct s_config
 	char	**cf;
 }	t_config;
 
+typedef struct s_valid
+{
+	int	no;
+	int	so;
+	int	ea;
+	int	we;
+	int	cc;
+	int	cf;
+}	t_valid;
+
 typedef enum e_tline
 {
 	NO_LINE,
