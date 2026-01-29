@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 23:55:13 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/30 00:20:18 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ typedef struct s_config
 	char	**cc;
 	char	**cf;
 }	t_config;
+
+typedef struct s_valid
+{
+	int	no;
+	int	so;
+	int	ea;
+	int	we;
+	int	cc;
+	int	cf;
+}	t_valid;
 
 typedef enum e_tline
 {
