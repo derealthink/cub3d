@@ -1,49 +1,49 @@
 #include "parsing.h"
 
-int val_txt_count(t_ulines *head)
+int val_txt_count(t_ulines *head, t_valid *d)
 {
-    int         id_count;
     t_ulines    *current;
 
     if (!head)
         return (0);
-    id_count = 0;
     current = head;
     while (current)
     {
-        if (current->type == NO_LINE)
-            id_count++;
+        if (current->type == MAP_LINE)
+            return (0);
+        else if (current->type == NO_LINE)
+            d->no = 1;
         else if (current->type == SO_LINE)
-            id_count++;
+            d->so = 1;
         else if (current->type == EA_LINE)
-            id_count++;
+            d->ea = 1;
         else if (current->type == WE_LINE)
-            id_count++;
+            d->we = 1;
         current = current->next;
     }
-    if (id_count == 4)
+    if (d->no && d->so && d->ea && d->we)
         return (1);
     return (0);
 }
 
-int val_cc_count(t_ulines *head)
+int val_cc_count(t_ulines *head, t_valid *d)
 {
-    int         cc_count;
     t_ulines    *current;
 
     if (!head)
         return (0);
-    cc_count = 0;
     current = head;
     while (current)
     {
-        if (current->type == CC_LINE)
-            cc_count++;
+        if (current->type == MAP_LINE)
+            return (0);
+        else if (current->type == CC_LINE)
+            d->cc = 1;
         else if (current->type == CF_LINE)
-            cc_count++;
+            d->cf = 1;
         current = current->next;
     }
-    if (cc_count == 2)
+    if (d->cc && d->cf)
         return (1);
     return (0); 
 }
