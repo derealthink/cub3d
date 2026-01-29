@@ -133,8 +133,7 @@ t_ulines    *id_config(char *file, t_config *id, t_valid *d)
         cc_config(head, id);
         cf_config(head, id);
     }
-    //add check to make sure id elements are before map elements
-    while (head)
+    /*while (head)
     {
         if (head->type != MAP_LINE)
             free(head);
@@ -143,6 +142,7 @@ t_ulines    *id_config(char *file, t_config *id, t_valid *d)
     clean_colors(id->cc);
     clean_colors(id->cf);
     return (head);
+    not preserving head*/
 }
 
 

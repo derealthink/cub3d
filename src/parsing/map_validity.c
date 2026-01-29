@@ -61,7 +61,7 @@ int is_fline_val(t_ulines *head)
         len = ft_strlen(current->line);
         while (is_space(current->line[len]) && len > 0)
             len--;
-        while(i > len)// could be >= unsure
+        while(i < len)// could be >= unsure
         {
             if (is_mapc_val(current->line[i]))
                 return (0);

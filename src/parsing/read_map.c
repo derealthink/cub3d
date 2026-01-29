@@ -18,6 +18,7 @@ static int  open_map(char *file)
 
     fd = 0;
     fd = open(file, O_RDONLY);
+    close(fd);
     if (fd < 0)
         return (1);
     return (fd);
