@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 16:37:37 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 01:54:17 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 14:23:46 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ static bool	wall_collision(t_data *game, double x, double y)
 
 	map_x = (int)x;
 	map_y = (int)y;
-
 	if (game->map[map_y][map_x] == '1')
 		return (false);
 	return (true);

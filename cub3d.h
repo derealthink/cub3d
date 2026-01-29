@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 01:50:20 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 17:59:22 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,18 @@
 # define MINI_W 300
 # define MINI_H 300
 
+# define FRAME_RATE_MS 16.67
 # define SPEED 0.05
 
 # define ERR_WRONG_INPUT "wrong input: ./cub3d <path/to/map.cub>"
 # define ERR_MLX_START "Could not start mlx"
 # define ERR_MLX_IMG "Could not create mlx image"
+
+# define MAP_PLAYER_COLOR 0x27D3F5
+# define MAP_WALL_COLOR 0xFF0000
+# define MAP_FLOOR_COLOR 0xF54927
+# define MAP_BG_COLOR 0x29402A
+# define MAP_TRANSPARENT 0xFFFFF00
 
 typedef struct s_config
 {
@@ -100,6 +107,7 @@ typedef struct s_data
 //	int			**textures;
 //	t_texinfo	texinfo;
 //	t_ray		ray;
+	t_img		frame;
 	t_img		minimap;
 }	t_data;
 

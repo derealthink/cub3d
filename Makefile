@@ -6,7 +6,7 @@
 #    By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/24 17:03:34 by aielo             #+#    #+#              #
-#    Updated: 2026/01/29 01:38:16 by aielo            ###   ########.fr        #
+#    Updated: 2026/01/29 17:26:30 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ PARS_SRCS 	= $(PARS_DIR)/read_map.c \
 				$(PARS_DIR)/map_config.c
 
 RENDER_SRCS = $(RENDER_DIR)/render.c \
+				$(RENDER_DIR)/frame.c \
 				$(RENDER_DIR)/minimap.c \
 
 UTILS_SRCS 	= $(UTILS_DIR)/get_time.c \
@@ -72,7 +73,7 @@ CEXTRA_INC	= -I. -I$(LIB_INC) -I$(INCLUDES)
 CEXTRA_LIB	= -L$(LIB_DIR) -l$(LIB_NAME)
 
 # Dependency
-DEPENDS		= $(OBJECTS:.o=.d)
+DEPENDS		= $(SOURCES:%.c=$(OBJ_DIR)/%.d)
 
 # Rules
 all: $(OBJ_DIR) libft mlx_linux $(NAME)
@@ -90,9 +91,9 @@ mlx_linux:
 	cd $(MLX_DIR) && chmod 777 configure && cd ..
 	$(MAKE) -C $(MLX_DIR)
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(CEXTRA_INC) -I/usr/include -I. -Imlx_linux -O3 -c $< -o $@
+	$(CC) $(CFLAGS) $(CEXTRA_INC) -I/usr/include -I. -Imlx_linux -O3 -MMD -MP -c $< -o $@
 
 -include $(DEPENDS)
 

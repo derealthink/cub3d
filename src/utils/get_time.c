@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 20:21:44 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/28 20:23:03 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 14:34:55 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 double	get_time_ms(void)
 {
-	struct timeval tv;
+	struct timeval	tv;
 
 	gettimeofday(&tv, NULL);
 	return (tv.tv_sec * 1000.0 + tv.tv_usec / 1000.0);

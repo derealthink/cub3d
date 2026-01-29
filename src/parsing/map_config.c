@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_config.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 15:28:55 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/27 15:33:17 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 17:29:29 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	get_map_width(char **map)
 			w = len;
 		i++;
 	}
-	return (w);
+	return (w - 1);
 }
 
 //	after reading the map:

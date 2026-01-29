@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:12:14 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/28 19:55:31 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 17:37:36 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ set_player_for_test(&game);
 	init_mlx(&game);
 	print_infos();
 	check_input(&game);
-
+//	render_frame(&game);
 	mlx_loop_hook(game.mlx, render, &game);
 	mlx_loop(game.mlx);
 	return (0);

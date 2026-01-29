@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:25:05 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 01:52:01 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 17:18:30 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	init_mlx(t_data *game)
 	game->win = mlx_new_window(game->mlx, WIDTH, HEIGHT, "cub3d");
 	if (!game->win)
 		clean_exit(game, error_msg(ERR_MLX_START, 1));
-	init_image(game, &game->minimap, MINI_W, MINI_H);
+	init_image(game, &game->frame, WIDTH, HEIGHT);
+	init_image(game, &game->minimap, game->map_width * IMG_PXL,
+		game->map_height * IMG_PXL);
 	return ;
 }
 
@@ -31,10 +33,9 @@ void	init_image(t_data *game, t_img *image, int width, int height)
 	if (image->img == NULL)
 		clean_exit(game, error_msg(ERR_MLX_IMG, 1));
 	image->addr = mlx_get_data_addr(image->img,
-		&image->bits_per_pixel,
-		&image->line_length,
-		&image->endian);
-//	image->width = width;
-//	image->height = height;
+			&image->bits_per_pixel, &image->line_length,
+			&image->endian);
+	image->width = width;
+	image->height = height;
 	return ;
 }
