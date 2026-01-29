@@ -6,13 +6,14 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:33:39 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/26 16:25:43 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 19:42:18 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXIT_H
 # define EXIT_H
 
+# include <stdio.h>
 # include "libft.h"
 # include "cub3d.h"
 

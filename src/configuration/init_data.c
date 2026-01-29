@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:17:38 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 17:38:49 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 20:24:54 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,25 @@ void	init_img_data(t_img *img)
 	img->endian = 0;
 	img->width = 0;
 	img->height = 0;
+}
+
+void	init_ray(t_ray *ray)
+{
+	ray->camera_x = 0;
+	ray->dir_x = 0;
+	ray->dir_y = 0;
+	ray->map_x = 0;
+	ray->map_y = 0;
+	ray->step_x = 0;
+	ray->step_y = 0;
+	ray->sidedist_x = 0;
+	ray->sidedist_y = 0;
+	ray->deltadist_x = 0;
+	ray->deltadist_y = 0;
+	ray->wall_dist = 0;
+	ray->wall_x = 0;
+	ray->side = 0;
+	ray->line_height = 0;
+	ray->draw_start = 0;
+	ray->draw_end = 0;
 }

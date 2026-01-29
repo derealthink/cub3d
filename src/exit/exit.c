@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:27:06 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/26 16:27:01 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 19:41:25 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	clean_exit(t_data *game, int exit_code)
 		free(game->mlx);
 	}
 //	free_data(game);
+	printf("\n");
 	exit(exit_code);
 }
 

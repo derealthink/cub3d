@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 16:56:25 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 14:19:54 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 23:50:35 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,13 @@
 
 int		render(t_data *game);
 void	render_loop(t_data *game);
-int		render_frame(t_data *game);
-int		render_minimap(t_data *game);
+void	render_frame(t_data *game);
+void	render_minimap(t_data *game);
+
+int		raycasting(t_player *player, t_data *game);
+void	frame_put_pixel(t_img *img, int x, int y, int color);
+//void	minimap_put_pixel(t_data *game, int x, int y, int color);
+
+void	draw_wireframe_column(t_data *game, t_ray *ray, int x);
 
 #endif

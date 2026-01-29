@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 17:59:22 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 23:55:13 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define MINI_W 300
 # define MINI_H 300
 
-# define FRAME_RATE_MS 16.67
+# define FRAME_RATE_MS 33.33 // 16.67 - 33.33 - 50
 # define SPEED 0.05
 
 # define ERR_WRONG_INPUT "wrong input: ./cub3d <path/to/map.cub>"
@@ -91,6 +91,27 @@ typedef struct s_player
 	int		rotate;
 }	t_player;
 
+typedef struct s_ray
+{
+	double	camera_x;
+	double	dir_x;
+	double	dir_y;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	double	sidedist_x;
+	double	sidedist_y;
+	double	deltadist_x;
+	double	deltadist_y;
+	double	wall_dist;
+	double	wall_x;
+	int		side;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+}	t_ray;
+
 typedef struct s_data
 {
 	void		*mlx;
@@ -106,7 +127,7 @@ typedef struct s_data
 //	int			**texture_pixels;
 //	int			**textures;
 //	t_texinfo	texinfo;
-//	t_ray		ray;
+	t_ray		ray;
 	t_img		frame;
 	t_img		minimap;
 }	t_data;
