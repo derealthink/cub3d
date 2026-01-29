@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:25:05 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/27 15:46:32 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 01:52:01 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ void	init_image(t_data *game, t_img *image, int width, int height)
 		&image->bits_per_pixel,
 		&image->line_length,
 		&image->endian);
+//	image->width = width;
+//	image->height = height;
 	return ;
 }

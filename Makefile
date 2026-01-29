@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aielo <aielo@student.42.fr>                +#+  +:+       +#+         #
+#    By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/24 17:03:34 by aielo             #+#    #+#              #
-#    Updated: 2026/01/27 15:31:55 by aielo            ###   ########.fr        #
+#    Updated: 2026/01/29 01:38:16 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,11 @@ EXIT_SRCS 	= $(EXIT_DIR)/error.c \
 PARS_SRCS 	= $(PARS_DIR)/read_map.c \
 				$(PARS_DIR)/map_config.c
 
-RENDER_SRCS = $(RENDER_DIR)/render.c
+RENDER_SRCS = $(RENDER_DIR)/render.c \
+				$(RENDER_DIR)/minimap.c \
 
-UTILS_SRCS 	= $(UTILS_DIR)/print_logo.c \
-				$(UTILS_DIR)/tests.c
+UTILS_SRCS 	= $(UTILS_DIR)/get_time.c \
+				$(UTILS_DIR)/print_logo.c
 
 SOURCES 	= cub3d.c \
 				$(CONFIG_SRCS) \

@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   get_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/22 16:31:49 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 01:47:25 by aielo            ###   ########.fr       */
+/*   Created: 2026/01/28 20:21:44 by aielo             #+#    #+#             */
+/*   Updated: 2026/01/28 20:23:03 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "utils.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <sys/time.h>
-# include "cub3d.h"
-# include "libft.h"
+double	get_time_ms(void)
+{
+	struct timeval tv;
 
-typedef struct s_data	t_data;
-
-void	print_infos(void);
-double	get_time_ms(void);
-
-#endif
+	gettimeofday(&tv, NULL);
+	return (tv.tv_sec * 1000.0 + tv.tv_usec / 1000.0);
+}

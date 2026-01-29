@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:17:38 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/27 14:16:56 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 01:49:28 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,6 @@ void	init_img_data(t_img *img)
 	img->bits_per_pixel = 0;
 	img->line_length = 0;
 	img->endian = 0;
+//	img->width = 0;
+//	img->height = 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/27 16:15:48 by aielo            ###   ########.fr       */
+/*   Updated: 2026/01/29 01:50:20 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define MINI_W 300
 # define MINI_H 300
 
-# define SPEED 0.01
+# define SPEED 0.05
 
 # define ERR_WRONG_INPUT "wrong input: ./cub3d <path/to/map.cub>"
 # define ERR_MLX_START "Could not start mlx"
@@ -65,6 +65,8 @@ typedef struct s_img
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		width;
+	int		height;
 }	t_img;
 
 typedef struct s_player
