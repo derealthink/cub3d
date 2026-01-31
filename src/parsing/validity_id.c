@@ -52,19 +52,24 @@ int is_dig_cc(t_ulines *head)
 {
     t_ulines    *current;
     int         d;
+    int         i;
 
     current = head;
+    i = 0;
     d = 0;
     while (current)
     {
         if (current->type == CC_LINE)
         {
-            if (ft_isdigit(current->line))
-                d = 1;
+           while(current->line[i])      //make here one loop for both cahnge the condition 
+           {
+                if(is_digit(current->line[i]))
+                    d = 1;
+           }
         }
         if (current->type == CF_LINE && d)
         {
-            if (ft_isdigit(current->line))
+            if (ft_isdigit(current->line))      //change flag shorten
                 return (1);
         }
         current = current->next;
