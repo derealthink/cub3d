@@ -5,7 +5,6 @@ void    cc_config(t_ulines *head, t_config *id)
     t_ulines    *current;
     char        **res;
     int         i;
-//    int         j;
 
     current = head;
     i = 1;
@@ -14,10 +13,11 @@ void    cc_config(t_ulines *head, t_config *id)
         if (current->type == CC_LINE)
         {
             res = ft_split(current->line, ',');
-            if (!res || !res[1])
+            if (!res)
                 return ;
-            free(res[0]);
-            id->cc = res;
+            res = clean_colors(res);
+            if (range_val(res))
+                id->cc = res;
         }
         current = current->next;
     }
@@ -27,20 +27,18 @@ void    cf_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
-    int         i;
-//    int         j;
 
     current = head;
-    i = 1;
     while (current)
     {
         if (current->type == CF_LINE)
         {
             res = ft_split(current->line, ',');
-            if (!res || !res[1])
+            if (!res)
                 return ;
-            free(res[0]);
-            id->cf = res;
+            res = clean_colors(res);
+            if (range_val(res))
+                id->cf = res;
         }
         current = current->next;
     }
@@ -66,15 +64,32 @@ int range_val(char **arr)
 }
 
 
-char    *clean_colors(char *line)
+char **clean_colors(char **arr)
 {
     int i;
+    int read;
+    int write;
+
+    if (!arr)
+        return NULL;
 
     i = 0;
-    if (!line)
-        return (NULL);
-    while(!ft_isdigit(line[i]))
+    while (arr[i])
+    {
+        read = 0;
+        write = 0;
+
+        while (arr[i][read])
+        {
+            if (ft_isdigit(arr[i][read]))
+                arr[i][write++] = arr[i][read];
+            read++;
+        }
+        arr[i][write] = '\0';
+        if (write == 0)
+            return (NULL);
         i++;
-    return (&line[i]);
+    }
+    return (arr);
 }
 

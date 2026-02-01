@@ -51,27 +51,26 @@ int val_cc_count(t_ulines *head, t_valid *d)
 int is_dig_cc(t_ulines *head)
 {
     t_ulines    *current;
-    int         d;
-    int         i;
+    int         cc_has_digit;
+    int         cf_has_digit;
 
     current = head;
-    i = 0;
-    d = 0;
+    cc_has_digit = 0;
+    cf_has_digit = 0;
     while (current)
     {
         if (current->type == CC_LINE)
         {
-           while(current->line[i])      //make here one loop for both cahnge the condition 
-           {
-                if(is_digit(current->line[i]))
-                    d = 1;
-           }
+            if (str_has_digit(current->line))
+                cc_has_digit = 1;
         }
-        if (current->type == CF_LINE && d)
+        else if (current->type == CF_LINE)
         {
-            if (ft_isdigit(current->line))      //change flag shorten
-                return (1);
+            if (str_has_digit(current->line))
+                cf_has_digit = 1;
         }
+        if (cc_has_digit && cf_has_digit)
+            return (1);
         current = current->next;
     }
     return (0);
@@ -96,4 +95,3 @@ int val_mp_count(t_ulines *head)
         return (1);
     return (0);
 }
-

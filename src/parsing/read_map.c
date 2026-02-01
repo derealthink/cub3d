@@ -18,9 +18,8 @@ static int  open_map(char *file)
 
     fd = 0;
     fd = open(file, O_RDONLY);
-    close(fd);
     if (fd < 0)
-        return (1);
+        return (-1);
     return (fd);
 }
 
@@ -62,6 +61,7 @@ static char  **create_map(int count, char *file)
         i++;
     }
     res[count] = NULL;
+    close(fd);
     return (res);
 }
 
@@ -72,7 +72,10 @@ char    **call_map(char *file)
     char    **map;
 
     fd = open_map(file);
+    if (fd < 0)
+        return (NULL);
     count = count_lines(fd);
+    close(fd);
     map = create_map(count, file);
 
     return (map);

@@ -29,5 +29,7 @@ void	    free_list(t_ulines *head);
 void    	free_map(char **map);
 int         val_txt_count(t_ulines *head, t_valid *d);
 int         val_cc_count(t_ulines *head, t_valid *d);
+int         str_has_digit(char *s);
+int         is_mapc_val(char c);
 
 #endif

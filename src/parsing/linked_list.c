@@ -4,7 +4,7 @@ t_ulines	*create_node(char *line, t_tline type)
 {
 	t_ulines	*node;
 
-	node = malloc(sizeof(t_list));
+	node = malloc(sizeof(t_ulines));
 	if (!node)
 		return (NULL);
 	node->line = ft_strdup(line);

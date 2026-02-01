@@ -99,7 +99,7 @@ void    ea_config(t_ulines *head, t_config *id)
         if (current->type == EA_LINE)
         {
             res = ft_split(current->line, ' ');
-            if (!res || !res[1])
+            if (!res || !res[1])//should free here in theory
                 return ;
             fd = open(res[1], O_RDONLY);
             if (fd == -1)
@@ -116,7 +116,7 @@ void    ea_config(t_ulines *head, t_config *id)
     }
 }
 
-t_ulines    *id_config(char *file, t_config *id, t_valid *d)
+void    id_config(char *file, t_config *id, t_valid *d)
 {
     t_ulines    *head;
 
@@ -128,21 +128,11 @@ t_ulines    *id_config(char *file, t_config *id, t_valid *d)
         ea_config(head, id);
         we_config(head, id);
     }
-    if (val_cc_count(head, d) && is_dig_cc(head))
+    if (val_cc_count(head, d))
     {
         cc_config(head, id);
         cf_config(head, id);
     }
-    /*while (head)
-    {
-        if (head->type != MAP_LINE)
-            free(head);
-        head = head->next;
-    }
-    clean_colors(id->cc);
-    clean_colors(id->cf);
-    return (head);
-    not preserving head*/
 }
 
 

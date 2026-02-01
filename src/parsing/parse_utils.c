@@ -48,3 +48,25 @@ void	free_map(char **map)
 	}
 	free(map);
 }
+int str_has_digit(char *s)
+{
+    int i;
+
+    i = 0;
+    while (s[i])
+    {
+        if (ft_isdigit(s[i]))
+            return (1);
+        i++;
+    }
+    return (0);
+}
+
+int is_mapc_val(char c)
+{
+    if (c == '1' || c == '0' ||
+    c == 'N' || c == 'S' || c == 'E' ||
+    c == 'W' || c == ' ')
+        return (1);
+    return (0);
+}
