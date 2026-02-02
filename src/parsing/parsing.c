@@ -37,4 +37,30 @@ int caller_id(t_ulines *head, t_valid *d, t_config *id)
     return (1);
 }
 
+int list_to_struct(char *filename, t_data *game)
+{
+    t_ulines    *head;
+    t_valid     *d;
+
+    ft_bzero(&d, sizeof(t_valid));
+    head = parse_to_list(filename);
+    if (!head)
+        return (0);
+    if (!validate_all(&d, head))
+    {
+        free_list(head);
+        return (0);
+    }
+    if (!caller_id(head, &d, game->id))
+        return (0);//needs a free for all here?
+    game->map = map_config(game, head);
+    if (!game->map)
+    {
+        free_list(head);
+        return (0);
+    }
+    free_list(head);
+    return (1);
+}
+
 
