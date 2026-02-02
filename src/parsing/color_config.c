@@ -1,29 +1,33 @@
 #include "parsing.h"
 
-void    cc_config(t_ulines *head, t_config *id)
+int    cc_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
-    int         i;
 
     current = head;
-    i = 1;
     while (current)
     {
         if (current->type == CC_LINE)
         {
             res = ft_split(current->line, ',');
             if (!res)
-                return ;
+                return (0);
             res = clean_colors(res);
+            if (!res)
+                return (0);
             if (range_val(res))
+            {
                 id->cc = res;
+                return (1);
+            }
         }
         current = current->next;
     }
+    return (0);
 }
 
-void    cf_config(t_ulines *head, t_config *id)
+int    cf_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
@@ -35,13 +39,19 @@ void    cf_config(t_ulines *head, t_config *id)
         {
             res = ft_split(current->line, ',');
             if (!res)
-                return ;
+                return (0);
             res = clean_colors(res);
+            if (!res)
+                return (0);
             if (range_val(res))
+            {
                 id->cf = res;
+                return (1);
+            }
         }
         current = current->next;
     }
+    return (0);
 }
 
 int range_val(char **arr)
@@ -92,4 +102,3 @@ char **clean_colors(char **arr)
     }
     return (arr);
 }
-

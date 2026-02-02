@@ -31,5 +31,8 @@ int         val_txt_count(t_ulines *head, t_valid *d);
 int         val_cc_count(t_ulines *head, t_valid *d);
 int         str_has_digit(char *s);
 int         is_mapc_val(char c);
+int         val_mp_count(t_ulines *head);
+int         is_dig_cc(t_ulines *head);
+char        **map_config(t_data *game, t_ulines *head);
 
 #endif
