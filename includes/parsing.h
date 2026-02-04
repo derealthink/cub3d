@@ -34,5 +34,6 @@ int         is_mapc_val(char c);
 int         val_mp_count(t_ulines *head);
 int         is_dig_cc(t_ulines *head);
 char        **map_config(t_data *game, t_ulines *head);
+void        prep_pad(t_ulines *head);
 
 #endif

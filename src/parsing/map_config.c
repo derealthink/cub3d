@@ -11,42 +11,6 @@
 /* ************************************************************************** */
 
 #include "parsing.h"
-/*
-// after you allocate/fill game->map, which is NULL-terminated
-int	get_map_height(char **map)
-{
-	int h;
-
-	h = 0;
-	while (map[h])
-		h++;
-	return h;
-}
-
-//	in your init/parsing code
-//	game->map_height = get_map_height(game->map);
-
-int	get_map_width(char **map)
-{
-	int w;
-	int i;
-	int len;
-
-	w = 0;
-	i = 0;
-	while (map[i])
-	{
-		len = ft_strlen(map[i]);
-		if (len > w)
-			w = len;
-		i++;
-	}
-	return (w - 1);
-}
-
-//	after reading the map:
-//	game->map_width = get_map_width(game->map);
-*/
 
 int	map_line_count(t_ulines *head)
 {
@@ -74,7 +38,7 @@ int	fill_map_array(char **arr, t_ulines *head, int len)
 	{
 		if (current->type == MAP_LINE)
 		{
-			arr[i] = ft_strdup(current->line);
+			arr[i] = fill_line(current->line, current->max);
 			if (!arr[i])
 			{
 				free_map(arr);
@@ -86,6 +50,26 @@ int	fill_map_array(char **arr, t_ulines *head, int len)
 	}
 	arr[len] = NULL;
 	return (1);
+}
+
+char *fill_line(char *line, int max)
+{
+    char    *res;
+    int     len;
+    int     i;
+
+    if (!line || max <= 0)
+        return (NULL);
+    len = ft_strlen(line);
+    res = malloc(sizeof(char) * (max + 1));
+    if (!res)
+        return (NULL);
+    ft_memcpy(res, line, len);
+    i = len;
+    while (i < max)
+        res[i++] = ' ';
+    res[i] = '\0';
+    return (res);
 }
 
 char	**map_config(t_data *game, t_ulines *head)

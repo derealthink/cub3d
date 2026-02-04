@@ -84,7 +84,7 @@ int    we_config(t_ulines *head, t_config *id)
         }
         current = current->next;
     }
-    return (1):
+    return (1);
 }
 
 int    ea_config(t_ulines *head, t_config *id)
@@ -115,25 +115,3 @@ int    ea_config(t_ulines *head, t_config *id)
     }
     return (1);
 }
-
-void    id_config(char *file, t_config *id, t_valid *d)
-{
-    t_ulines    *head;
-
-    head = parse_to_list(file);
-    if (val_txt_count(head, d))
-    {
-        no_config(head, id);
-        so_config(head, id);
-        ea_config(head, id);
-        we_config(head, id);
-    }
-    if (val_cc_count(head, d))
-    {
-        cc_config(head, id);
-        cf_config(head, id);
-    }
-}
-
-
-

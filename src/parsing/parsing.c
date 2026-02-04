@@ -53,6 +53,7 @@ int list_to_struct(char *filename, t_data *game)
     }
     if (!caller_id(head, &d, game->id))
         return (0);//needs a free for all here?
+    prep_pad(head);
     game->map = map_config(game, head);
     if (!game->map)
     {

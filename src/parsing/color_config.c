@@ -16,7 +16,7 @@ int    cc_config(t_ulines *head, t_config *id)
             res = clean_colors(res);
             if (!res)
                 return (0);
-            if (range_val(res))
+            if (range_val(res) && is_only_dig(res))
             {
                 id->cc = res;
                 return (1);
@@ -43,7 +43,7 @@ int    cf_config(t_ulines *head, t_config *id)
             res = clean_colors(res);
             if (!res)
                 return (0);
-            if (range_val(res))
+            if (range_val(res) && is_only_dig(res))
             {
                 id->cf = res;
                 return (1);
@@ -101,4 +101,23 @@ char **clean_colors(char **arr)
         i++;
     }
     return (arr);
+}
+int is_only_dig(char **arr)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while(arr[i] != NULL)
+    {
+        j = 0;
+        while(arr[i][j])
+        {
+            if (!is_digit(arr[i][j]))
+                return (0);
+            j++;
+        }
+        i++;
+    }
+    return (1);
 }
