@@ -62,7 +62,7 @@ struct	s_col_name
 typedef struct	s_event_list
 {
 	int		mask;
-	int		(*hook)();
+	int		(*hook)(void *);
 	void	*param;
 }				t_event_list;
 
@@ -72,9 +72,9 @@ typedef struct	s_win_list
 	Window				window;
 	GC					gc;
 	struct s_win_list	*next;
-	int					(*mouse_hook)();
-	int					(*key_hook)();
-	int					(*expose_hook)();
+	int					(*mouse_hook)(void *);
+	int					(*key_hook)(void *);
+	int					(*expose_hook)(void *);
 	void				*mouse_param;
 	void				*key_param;
 	void				*expose_param;
@@ -107,7 +107,7 @@ typedef struct	s_xvar
 	Colormap	cmap;
 	int			private_cmap;
 	t_win_list	*win_list;
-	int			(*loop_hook)();
+	int			(*loop_hook)(void *);
 	void		*loop_param;
 	int			use_xshm;
 	int			pshm_format;
@@ -118,15 +118,21 @@ typedef struct	s_xvar
 	int 		end_loop;
 }				t_xvar;
 
+extern int (*mlx_int_param_event[MLX_MAX_EVENT])(
+    t_xvar *,
+    XEvent *,
+    t_win_list *
+);
+
 
 int				mlx_int_do_nothing();
 int				mlx_get_color_value();
-int				mlx_int_get_good_color();
+int				mlx_int_get_good_color(t_xvar *xvar, int color);
 int				mlx_int_find_in_pcm();
-int				mlx_int_anti_resize_win();
-int				mlx_int_wait_first_expose();
-int				mlx_int_rgb_conversion();
-int				mlx_int_deal_shm();
+int				mlx_int_anti_resize_win(t_xvar *xvar, Window win, int size_x, int size_y);
+int				mlx_int_wait_first_expose(t_xvar *xvar, Window win);
+int				mlx_int_rgb_conversion(t_xvar *xvar);
+int				mlx_int_deal_shm(t_xvar *xvar);
 void			*mlx_int_new_xshm_image();
 char			**mlx_int_str_to_wordtab();
 void			*mlx_new_image();
