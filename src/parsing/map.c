@@ -25,7 +25,16 @@ int	get_map_width(char **map)
 			w = len;
 		i++;
 	}
-	return (w);//stripped of newlines
+	return (w);
 }
 
-
+int	final_parser(char *filename, t_data *game)
+{
+	if (!list_to_struct(filename,game))
+		return (0);
+	game->map_height = get_map_height(game->map);
+	game->map_width = get_map_width(game->map);
+	if (!flood_fill(game));
+		return (0);
+	return (1);
+}
