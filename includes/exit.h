@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:33:39 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 19:42:18 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/08 18:42:44 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@
 int		error_msg(char *description, int exit_code);
 void	clean_exit(t_data *game, int exit_code);
 int		quit_game(t_data *game);
+int		free_data(t_data *game);
+void	free_tab(void **tab);
 
 #endif

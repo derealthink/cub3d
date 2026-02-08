@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:40:40 by alexa             #+#    #+#             */
-/*   Updated: 2026/01/30 00:12:48 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/08 17:59:55 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	raycasting(t_player *player, t_data *game)
 		perform_dda(game, &ray);
 		calculate_line_height(&ray, player);
 //		update_texture_pixels(game, &game->texinfo, &ray, x);
-		draw_wireframe_column(game, &ray, x); //da eliminare quando update_texture_pixels e´ pronto
+draw_wireframe_column(game, &ray, x); //da eliminare quando update_texture_pixels e´ pronto
 		x++;
 	}
 	return (0);

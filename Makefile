@@ -6,7 +6,7 @@
 #    By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/24 17:03:34 by aielo             #+#    #+#              #
-#    Updated: 2026/01/29 23:31:48 by aielo            ###   ########.fr        #
+#    Updated: 2026/02/08 18:38:59 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,15 +43,17 @@ EXEC_SRCS 	= $(EXEC_DIR)/key_input.c \
 				$(EXEC_DIR)/player_rotation.c
 
 EXIT_SRCS 	= $(EXIT_DIR)/error.c \
-				$(EXIT_DIR)/exit.c
+				$(EXIT_DIR)/exit.c \
+				$(EXIT_DIR)/free.c
 
 PARS_SRCS 	= $(PARS_DIR)/read_map.c \
 				$(PARS_DIR)/map_config.c
 
 RENDER_SRCS = $(RENDER_DIR)/minimap.c \
+				$(RENDER_DIR)/render_main.c \
 				$(RENDER_DIR)/render_raycasting.c \
 				$(RENDER_DIR)/render_utils.c \
-				$(RENDER_DIR)/render_main.c
+				$(RENDER_DIR)/texture.c
 
 UTILS_SRCS 	= $(UTILS_DIR)/get_time.c \
 				$(UTILS_DIR)/print_logo.c
@@ -109,7 +111,7 @@ fclean: clean
 
 re: fclean all
 
-# Valgrind rules
+# Valgrind rules ( --suppressions=mlx.supp \ )
 val: $(NAME)
 	valgrind \
 		--leak-check=full \

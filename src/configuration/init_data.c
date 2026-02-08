@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:17:38 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 20:24:54 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/08 18:09:19 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	init_data(t_data *game)
 	init_img_data(&game->minimap);
 	game->id = NULL;
 	game->map = NULL;
+	game->texture_pixels = NULL;
+	game->textures = NULL;
 }
 
 static void	init_player(t_player *player)

@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/30 00:20:18 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/08 18:48:48 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define SPEED 0.05
 
 # define ERR_WRONG_INPUT "wrong input: ./cub3d <path/to/map.cub>"
+# define ERR_MALLOC "Could not allocate memory"
 # define ERR_MLX_START "Could not start mlx"
 # define ERR_MLX_IMG "Could not create mlx image"
 
@@ -86,6 +87,26 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
+/*
+typedef struct s_texture
+{
+	char			*north;
+	char			*south;
+	char			*west;
+	char			*east;
+	int				*floor;
+	int				*ceiling;
+	unsigned long	hex_floor;
+	unsigned long	hex_ceiling;
+	int				size;
+	int				index;
+	double			step;
+	double			pos;
+	int				x;
+	int				y;
+}	t_texture;
+*/
+
 typedef struct s_player
 {
 	char	dir;
@@ -134,8 +155,8 @@ typedef struct s_data
 	int			map_width;
 	t_player	player;
 	t_config	*id; //da rinominare texture_id
-//	int			**texture_pixels;
-//	int			**textures;
+	int			**texture_pixels;
+	int			**textures;
 //	t_texinfo	texinfo;
 	t_ray		ray;
 	t_img		frame;

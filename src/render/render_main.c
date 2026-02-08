@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 16:55:54 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/30 00:05:08 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/08 18:09:53 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	draw_background(t_data *game)
 
 static void	render_raycasting(t_data *game)
 {
-//	init_texture_pixels(game);
+	init_texture_pixels(game);
 //	init_ray(&game->ray);
 	raycasting(&game->player, game);
 }
