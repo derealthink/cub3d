@@ -47,7 +47,19 @@ EXIT_SRCS 	= $(EXIT_DIR)/error.c \
 				$(EXIT_DIR)/free.c
 
 PARS_SRCS 	= $(PARS_DIR)/read_map.c \
-				$(PARS_DIR)/map_config.c
+				$(PARS_DIR)/color_config.c \
+				$(PARS_DIR)/flood_fill.c.c \
+				$(PARS_DIR)/linked_list.c \
+				$(PARS_DIR)/list_padding.c \
+				$(PARS_DIR)/map_validity.c \
+				$(PARS_DIR)/map_config.c \
+				$(PARS_DIR)/map.c \
+				$(PARS_DIR)/parse_utils.c \
+				$(PARS_DIR)/parsing.c \
+				$(PARS_DIR)/prep_id.c \
+				$(PARS_DIR)/read_map.c \
+				$(PARS_DIR)/texture_config.c \
+				$(PARS_DIR)/validity_id.c \
 
 RENDER_SRCS = $(RENDER_DIR)/minimap.c \
 				$(RENDER_DIR)/render_main.c \
@@ -96,7 +108,7 @@ mlx_linux:
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(CEXTRA_INC) -I/usr/include -I. -Imlx_linux -O3 -MMD -MP -c $< -o $@
+	$(CC) $(CFLAGS) $(CEXTRA_INC) -I/usr/include -I. -Imlx_linux -O3 -MMD -MP -c $< -o $@ -std=gnu89
 
 -include $(DEPENDS)
 

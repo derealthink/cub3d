@@ -1,49 +1,57 @@
 #include "parsing.h"
 
-void    cc_config(t_ulines *head, t_config *id)
+int    cc_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
-    int         i;
-//    int         j;
 
     current = head;
-    i = 1;
     while (current)
     {
         if (current->type == CC_LINE)
         {
             res = ft_split(current->line, ',');
-            if (!res || !res[1])
-                return ;
-            free(res[0]);
-            id->cc = res;
+            if (!res)
+                return (0);
+            res = clean_colors(res);
+            if (!res)
+                return (0);
+            if (range_val(res) && is_only_dig(res))
+            {
+                id->cc = res;
+                return (1);
+            }
         }
         current = current->next;
     }
+    return (0);
 }
 
-void    cf_config(t_ulines *head, t_config *id)
+int    cf_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
-    int         i;
-//    int         j;
 
     current = head;
-    i = 1;
     while (current)
     {
         if (current->type == CF_LINE)
         {
             res = ft_split(current->line, ',');
-            if (!res || !res[1])
-                return ;
-            free(res[0]);
-            id->cf = res;
+            if (!res)
+                return (0);
+            res = clean_colors(res);
+            if (!res)
+                return (0);
+            if (range_val(res) && is_only_dig(res))
+            {
+                id->cf = res;
+                return (1);
+            }
         }
         current = current->next;
     }
+    return (0);
 }
 
 int range_val(char **arr)
@@ -66,15 +74,50 @@ int range_val(char **arr)
 }
 
 
-char    *clean_colors(char *line)
+char **clean_colors(char **arr)
 {
     int i;
+    int read;
+    int write;
+
+    if (!arr)
+        return NULL;
 
     i = 0;
-    if (!line)
-        return (NULL);
-    while(!ft_isdigit(line[i]))
-        i++;
-    return (&line[i]);
-}
+    while (arr[i])
+    {
+        read = 0;
+        write = 0;
 
+        while (arr[i][read])
+        {
+            if (ft_isdigit(arr[i][read]))
+                arr[i][write++] = arr[i][read];
+            read++;
+        }
+        arr[i][write] = '\0';
+        if (write == 0)
+            return (NULL);
+        i++;
+    }
+    return (arr);
+}
+int is_only_dig(char **arr)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while(arr[i] != NULL)
+    {
+        j = 0;
+        while(arr[i][j])
+        {
+            if (!is_digit(arr[i][j]))
+                return (0);
+            j++;
+        }
+        i++;
+    }
+    return (1);
+}

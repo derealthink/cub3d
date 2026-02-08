@@ -1,6 +1,6 @@
 #include "parsing.h"
 
-void    no_config(t_ulines *head, t_config *id)
+int    no_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
@@ -13,13 +13,12 @@ void    no_config(t_ulines *head, t_config *id)
         {
             res = ft_split(current->line, ' ');
             if (!res || !res[1])
-                return ;
+                return (0);
             fd = open(res[1], O_RDONLY);
             if (fd == -1)
             {
-                perror("NO texture invalid");
                 free_split(res);
-                return ;
+                return (0);
             }
             close(fd);
             id->no = ft_strdup(res[1]);
@@ -27,9 +26,10 @@ void    no_config(t_ulines *head, t_config *id)
         }
         current = current->next;
     }
+    return (1);
 }
 
-void    so_config(t_ulines *head, t_config *id)
+int    so_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
@@ -42,13 +42,12 @@ void    so_config(t_ulines *head, t_config *id)
         {
             res = ft_split(current->line, ' ');
             if (!res || !res[1])
-                return ;
+                return (0);
             fd = open(res[1], O_RDONLY);
             if (fd == -1)
             {
-                perror("SO texture invalid");
                 free_split(res);
-                return ;
+                return (0);
             }
             close(fd);
             id->so = ft_strdup(res[1]);
@@ -56,9 +55,10 @@ void    so_config(t_ulines *head, t_config *id)
         }
         current = current->next;
     }
+    return (1);
 }
 
-void    we_config(t_ulines *head, t_config *id)
+int    we_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
@@ -71,13 +71,12 @@ void    we_config(t_ulines *head, t_config *id)
         {
             res = ft_split(current->line, ' ');
             if (!res || !res[1])
-                return ;
+                return (0);
             fd = open(res[1], O_RDONLY);
             if (fd == -1)
             {
-                perror("WE texture invalid");
                 free_split(res);
-                return ;
+                return (0);
             }
             close(fd);
             id->we = ft_strdup(res[1]);
@@ -85,9 +84,10 @@ void    we_config(t_ulines *head, t_config *id)
         }
         current = current->next;
     }
+    return (1);
 }
 
-void    ea_config(t_ulines *head, t_config *id)
+int    ea_config(t_ulines *head, t_config *id)
 {
     t_ulines    *current;
     char        **res;
@@ -100,13 +100,12 @@ void    ea_config(t_ulines *head, t_config *id)
         {
             res = ft_split(current->line, ' ');
             if (!res || !res[1])
-                return ;
+                return (0);
             fd = open(res[1], O_RDONLY);
             if (fd == -1)
             {
-                perror("EA texture invalid");
                 free_split(res);
-                return ;
+                return (0);
             }
             close(fd);
             id->ea = ft_strdup(res[1]);
@@ -114,36 +113,5 @@ void    ea_config(t_ulines *head, t_config *id)
         }
         current = current->next;
     }
+    return (1);
 }
-
-t_ulines    *id_config(char *file, t_config *id, t_valid *d)
-{
-    t_ulines    *head;
-
-    head = parse_to_list(file);
-    if (val_txt_count(head, d))
-    {
-        no_config(head, id);
-        so_config(head, id);
-        ea_config(head, id);
-        we_config(head, id);
-    }
-    if (val_cc_count(head, d) && is_dig_cc(head))
-    {
-        cc_config(head, id);
-        cf_config(head, id);
-    }
-    //add check to make sure id elements are before map elements
-    while (head)
-    {
-        if (head->type != MAP_LINE)
-            free(head);
-        head = head->next;
-    }
-    clean_colors(id->cc);
-    clean_colors(id->cf);
-    return (head);
-}
-
-
-

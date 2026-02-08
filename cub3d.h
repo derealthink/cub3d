@@ -72,8 +72,8 @@ typedef struct s_ulines
 	char			*line;
 	t_tline			type;
 	struct s_ulines	*next;
-	int				len;
-	int				valid;
+	int				pad;
+	int				max;
 }	t_ulines;
 
 typedef struct s_img

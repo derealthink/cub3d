@@ -25,16 +25,20 @@ char    **del_empty(char **map)
 char    *trim_lead(char *line)
 {
     int i;
+    int start;
 
     if (!line)
         return (NULL);
     i = 0;
     while (is_space(line[i]))
         i++;
-    if (line[i +1] && (line[i + 1] != '1'))
+    if (line[i + 1] && (line[i + 1] != '1'))
     {
-        while(*line <= 32)
-            line++;
+        start = 0;
+        while (line[start] && line[start] <= 32)
+            start++;
+        if (start > 0)
+            ft_memmove(line, line + start, ft_strlen(line + start) + 1);
     }
     return (line);
 }
