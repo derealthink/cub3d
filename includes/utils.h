@@ -19,7 +19,7 @@
 # include "cub3d.h"
 # include "libft.h"
 
-typedef struct s_data	t_data;
+//typedef struct s_data	t_data; questo causava un errore
 
 void	print_infos(void);
 double	get_time_ms(void);

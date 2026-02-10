@@ -1,4 +1,4 @@
-#include "cub3d.h"
+#include "parsing.h"
 
 int validate_all(t_valid *d, t_ulines *head)
 {
@@ -21,7 +21,7 @@ int validate_all(t_valid *d, t_ulines *head)
     return (1);
 }
 
-int caller_id(t_ulines *head, t_valid *d, t_config *id)
+int caller_id(t_ulines *head, t_config *id)
 {
     if (!no_config(head, id) || !so_config(head,id) || 
     !ea_config(head, id) || !we_config(head, id))
@@ -40,7 +40,7 @@ int caller_id(t_ulines *head, t_valid *d, t_config *id)
 int list_to_struct(char *filename, t_data *game)
 {
     t_ulines    *head;
-    t_valid     *d;
+    t_valid     d;
 
     ft_bzero(&d, sizeof(t_valid));
     head = parse_to_list(filename);
@@ -51,7 +51,7 @@ int list_to_struct(char *filename, t_data *game)
         free_list(head);
         return (0);
     }
-    if (!caller_id(head, &d, game->id))
+    if (!caller_id(head, game->id))
         return (0);//needs a free for all here?
     prep_pad(head);
     game->map = map_config(game, head);

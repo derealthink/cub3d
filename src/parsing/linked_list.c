@@ -14,8 +14,6 @@ t_ulines	*create_node(char *line, t_tline type)
 		return (NULL);
 	}
 	node->type = type;
-    node->len = ft_strlen(line);
-    node->valid = 0;
 	node->next = NULL;
 	return (node);
 }

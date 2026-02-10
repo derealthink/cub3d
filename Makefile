@@ -48,7 +48,7 @@ EXIT_SRCS 	= $(EXIT_DIR)/error.c \
 
 PARS_SRCS 	= $(PARS_DIR)/read_map.c \
 				$(PARS_DIR)/color_config.c \
-				$(PARS_DIR)/flood_fill.c.c \
+				$(PARS_DIR)/flood_fill.c \
 				$(PARS_DIR)/linked_list.c \
 				$(PARS_DIR)/list_padding.c \
 				$(PARS_DIR)/map_validity.c \
@@ -57,7 +57,6 @@ PARS_SRCS 	= $(PARS_DIR)/read_map.c \
 				$(PARS_DIR)/parse_utils.c \
 				$(PARS_DIR)/parsing.c \
 				$(PARS_DIR)/prep_id.c \
-				$(PARS_DIR)/read_map.c \
 				$(PARS_DIR)/texture_config.c \
 				$(PARS_DIR)/validity_id.c \
 

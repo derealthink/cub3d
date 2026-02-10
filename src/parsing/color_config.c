@@ -113,7 +113,7 @@ int is_only_dig(char **arr)
         j = 0;
         while(arr[i][j])
         {
-            if (!is_digit(arr[i][j]))
+            if (!ft_isdigit(arr[i][j]))
                 return (0);
             j++;
         }

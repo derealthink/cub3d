@@ -14,6 +14,7 @@
 # define PARSING_H
 
 # include <stdlib.h>
+# include <stdio.h>
 # include <fcntl.h>
 # include "cub3d.h"
 # include "libft.h"
@@ -35,5 +36,21 @@ int         val_mp_count(t_ulines *head);
 int         is_dig_cc(t_ulines *head);
 char        **map_config(t_data *game, t_ulines *head);
 void        prep_pad(t_ulines *head);
+char        **clean_colors(char **arr);
+int         range_val(char **arr);
+int         is_only_dig(char **arr);
+int         list_to_struct(char *filename, t_data *game);
+int         flood_fill(t_data *game);
+int         cf_config(t_ulines *head, t_config *id);
+int         cc_config(t_ulines *head, t_config *id);
+int         ea_config(t_ulines *head, t_config *id);
+int         we_config(t_ulines *head, t_config *id);
+int         so_config(t_ulines *head, t_config *id);
+int         no_config(t_ulines *head, t_config *id);
+int         is_first_val(t_ulines *head);
+int         is_last_val(t_ulines *head);
+int         is_fline_val(t_ulines *head);
+int         is_first_last_mapline_val(t_ulines *head);
+void        free_split(char **arr);
 
 #endif

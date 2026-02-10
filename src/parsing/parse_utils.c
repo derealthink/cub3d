@@ -70,3 +70,14 @@ int is_mapc_val(char c)
         return (1);
     return (0);
 }
+void free_split(char **arr)
+{
+    int i;
+
+    i = 0;
+    while (arr[i] != NULL)
+    {
+        free(arr[i]);
+        i++;
+    }
+}

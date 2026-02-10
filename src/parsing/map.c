@@ -34,7 +34,7 @@ int	final_parser(char *filename, t_data *game)
 		return (0);
 	game->map_height = get_map_height(game->map);
 	game->map_width = get_map_width(game->map);
-	if (!flood_fill(game));
+	if (!flood_fill(game))
 		return (0);
 	return (1);
 }

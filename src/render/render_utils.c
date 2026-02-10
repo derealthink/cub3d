@@ -39,14 +39,18 @@ void	minimap_put_pixel(t_data *game, int x, int y, int color)
 
 void	draw_wireframe_column(t_data *game, t_ray *ray, int x)
 {
+	int y;
+
 	// 1. Draw the top boundary point
 	frame_put_pixel(&game->frame, x, ray->draw_start, 0x8ba0a4);
 	// 2. Draw the bottom boundary point
 	frame_put_pixel(&game->frame, x, ray->draw_end, 0x8ba0a4);
 	// 3. Optional: Draw vertical lines at grid intersections 
-	for (int y = ray->draw_start; y <= ray->draw_end; y++)
+	y = ray->draw_start;	
+	while (y <= ray->draw_end)
 	{
 		if (x % 20 == 0) // Adjust frequency of vertical bars
 			frame_put_pixel(&game->frame, x, y, 0x8ba0a4);
+		y++;
 	}
 }
