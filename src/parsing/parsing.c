@@ -1,4 +1,5 @@
 #include "parsing.h"
+#include "configuration.h"
 
 int validate_all(t_valid *d, t_ulines *head)
 {
@@ -43,6 +44,7 @@ int list_to_struct(char *filename, t_data *game)
     t_valid     d;
 
     ft_bzero(&d, sizeof(t_valid));
+    init_config(game->id);
     head = parse_to_list(filename);
     if (!head)
         return (0);

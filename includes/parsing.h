@@ -52,5 +52,6 @@ int         is_last_val(t_ulines *head);
 int         is_fline_val(t_ulines *head);
 int         is_first_last_mapline_val(t_ulines *head);
 void        free_split(char **arr);
+int         final_parser(char *filename, t_data *game);
 
 #endif

@@ -26,4 +26,5 @@ int		player_rotate(t_data *game, int rotate);
 int		is_valid_move(t_data *game, double x, double y);
 void	init_player_direction(t_data *game);
 
+
 #endif

@@ -29,11 +29,13 @@ int main(int argc, char **argv)
 	init_data(&game);
 //	if (parse_args(&game, argv) != 0)
 //		return (1);
-game.map = call_map(argv[1]);
+/*game.map = call_map(argv[1]);
 game.map_height = get_map_height(game.map);
-game.map_width = get_map_width(game.map);
+game.map_width = get_map_width(game.map);*/
 set_player_for_test(&game);
-//init_player_direction(&game); // da spostare in parse_args?
+if (final_parser(argv[1], &game))
+{
+	//init_player_direction(&game); // da spostare in parse_args?
 
 	init_mlx(&game);
 	print_infos();
@@ -41,6 +43,7 @@ set_player_for_test(&game);
 //	render_frame(&game);
 	mlx_loop_hook(game.mlx, render, &game);
 	mlx_loop(game.mlx);
+}
 	return (0);
 }
 

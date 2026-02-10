@@ -1,4 +1,5 @@
 #include "parsing.h"
+#include "configuration.h"
 
 t_ulines	*create_node(char *line, t_tline type)
 {
@@ -7,6 +8,7 @@ t_ulines	*create_node(char *line, t_tline type)
 	node = malloc(sizeof(t_ulines));
 	if (!node)
 		return (NULL);
+	init_ulines(node);
 	node->line = ft_strdup(line);
 	if (!node->line)
 	{
