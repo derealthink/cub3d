@@ -67,6 +67,7 @@ char    **prep_id(char **map)
 
     int i;
 
+    printf("entered prep id\n");
     map = del_empty(map);
     i = 0;
     while (map[i] != NULL)

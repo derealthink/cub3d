@@ -49,9 +49,9 @@ t_tline	line_type(char *line)
 		return (EA_LINE);
 	if (ft_strncmp(line, "WE ", 3) == 0)
 		return (WE_LINE);
-	if (ft_strncmp(line, "CC", 2) == 0)
+	if (ft_strncmp(line, "C ", 2) == 0)
 		return (CC_LINE);
-	if (ft_strncmp(line, "CF", 2) == 0)
+	if (ft_strncmp(line, "F ", 2) == 0)
 		return (CF_LINE);
 	return (MAP_LINE);
 }
@@ -64,6 +64,7 @@ t_ulines	*parse_to_list(char *file)
 	int		i;
 	t_tline	type;
 
+	printf("entered parse to list\n");
 	map = call_map(file);
 	if (!map)
 		return (NULL);

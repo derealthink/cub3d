@@ -82,7 +82,7 @@ static int is_line_only_one_space(const char *line)
     i = 0;
     while (line[i])
     {
-        if (line[i] != '1' && line[i] != ' ')
+        if ((line[i] != '1') && (line[i] != ' ') && (line[i] != '\n') && (line[i] != '\r')) 
             return (0);
         i++;
     }

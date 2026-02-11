@@ -154,7 +154,7 @@ typedef struct s_data
 	int			map_height;
 	int			map_width;
 	t_player	player;
-	t_config	*id; //da rinominare texture_id
+	t_config	id; //da rinominare texture_id
 	int			**texture_pixels;
 	int			**textures;
 //	t_texinfo	texinfo;

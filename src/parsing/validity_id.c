@@ -9,7 +9,7 @@ int val_txt_count(t_ulines *head, t_valid *d)
     current = head;
     while (current)
     {
-        if (current->type == MAP_LINE)
+        if (current->type == MAP_LINE && (!d->no || !d->so || !d->we || !d->ea))
             return (0);
         else if (current->type == NO_LINE)
             d->no = 1;
@@ -35,7 +35,7 @@ int val_cc_count(t_ulines *head, t_valid *d)
     current = head;
     while (current)
     {
-        if (current->type == MAP_LINE)
+        if (current->type == MAP_LINE && (!d->cc || !d->cf))
             return (0);
         else if (current->type == CC_LINE)
             d->cc = 1;

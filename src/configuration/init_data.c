@@ -16,13 +16,14 @@ static void	init_player(t_player *player);
 
 void	init_data(t_data *game)
 {
+
 	game->mlx = NULL;
 	game->win = NULL;
 	game->win_width = WIDTH;
 	game->win_height = HEIGHT;
 	init_player(&game->player);
 	init_img_data(&game->minimap);
-	game->id = NULL;
+	init_config(&game->id);
 	game->map = NULL;
 	game->texture_pixels = NULL;
 	game->textures = NULL;

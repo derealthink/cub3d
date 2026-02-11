@@ -21,7 +21,6 @@
 
 int main(int argc, char **argv)
 {
-	(void) argv;
 	t_data  game;
 
 	if (argc != 2)
@@ -32,19 +31,20 @@ int main(int argc, char **argv)
 /*game.map = call_map(argv[1]);
 game.map_height = get_map_height(game.map);
 game.map_width = get_map_width(game.map);*/
-set_player_for_test(&game);
 if (final_parser(argv[1], &game))
 {
 	//init_player_direction(&game); // da spostare in parse_args?
-
+	printf("passed final parser tests\n");
+	set_player_for_test(&game);
 	init_mlx(&game);
 	print_infos();
 	check_input(&game);
 //	render_frame(&game);
 	mlx_loop_hook(game.mlx, render, &game);
 	mlx_loop(game.mlx);
-}
 	return (0);
+}
+	return (3);
 }
 
 static void	set_player_for_test(t_data *game)

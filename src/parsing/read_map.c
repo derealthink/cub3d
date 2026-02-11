@@ -71,6 +71,7 @@ char    **call_map(char *file)
     int     fd;
     char    **map;
 
+    printf("entered call map\n");
     fd = open_map(file);
     if (fd < 0)
         return (NULL);

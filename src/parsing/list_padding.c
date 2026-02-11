@@ -65,6 +65,7 @@ void    pad_insert(t_ulines *head, int max)
 }
 void    prep_pad(t_ulines *head)
 {
+    printf("entering prep pad\n");
     rm_nl(head);
     max_len(head);
     pad_insert(head, head->max);

@@ -34,7 +34,8 @@ UTILS_DIR 	= src/utils
 
 # Sources
 CONFIG_SRCS	= $(CONFIG_DIR)/init_data.c \
-				$(CONFIG_DIR)/init_mlx.c
+				$(CONFIG_DIR)/init_mlx.c \
+				$(CONFIG_DIR)/init_parsing.c
 
 EXEC_SRCS 	= $(EXEC_DIR)/key_input.c \
 				$(EXEC_DIR)/player_direction.c \
