@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 16:56:25 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/08 18:17:45 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/13 12:40:56 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,19 @@
 # include "configuration.h"
 # include "utils.h"
 
-int		render(t_data *game);
-//void	render_loop(t_data *game);
-void	render_frame(t_data *game);
 void	render_minimap(t_data *game);
 
-void	init_texture_pixels(t_data *game);
-int		raycasting(t_player *player, t_data *game);
-void	frame_put_pixel(t_img *img, int x, int y, int color);
-//void	minimap_put_pixel(t_data *game, int x, int y, int color);
+int		render(t_data *game);
+void	render_frame(t_data *game);
+void	draw_background(t_data *game);
 
-void	draw_wireframe_column(t_data *game, t_ray *ray, int x);
+int		raycasting(t_player *player, t_data *game);
+
+void	frame_put_pixel(t_img *img, int x, int y, int color);
+void	render_texture_to_frame(t_data *game);
+
+void	init_texture_pixels(t_data *game);
+void	update_texture_pixels(t_data *data, t_texinfo *tex, t_ray *ray, int x);
+void	get_texture_index(t_data *data, t_ray *ray);
 
 #endif

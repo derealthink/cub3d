@@ -22,3 +22,38 @@
    ...
    fun:mlx_loop
 }
+{
+   MLX_writev_uninit
+   Memcheck:Param
+   writev(vector[0])
+   fun:writev
+   ...
+   fun:mlx_new_window
+}
+
+{
+   MLX_xcb_writev
+   Memcheck:Param
+   writev(vector[0])
+   ...
+   obj:*/libxcb.so*
+   ...
+   fun:mlx_init
+}
+
+{
+   MLX_X11_uninit
+   Memcheck:Param
+   writev(vector[0])
+   ...
+   obj:*/libX11.so*
+   ...
+}
+
+{
+   MLX_all_writev
+   Memcheck:Param
+   writev(vector[0])
+   fun:writev
+   ...
+}

@@ -6,7 +6,7 @@
 #    By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/24 17:03:34 by aielo             #+#    #+#              #
-#    Updated: 2026/02/08 18:38:59 by aielo            ###   ########.fr        #
+#    Updated: 2026/02/13 11:47:34 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,8 @@ UTILS_DIR 	= src/utils
 # Sources
 CONFIG_SRCS	= $(CONFIG_DIR)/init_data.c \
 				$(CONFIG_DIR)/init_mlx.c \
-				$(CONFIG_DIR)/init_parsing.c
+				$(CONFIG_DIR)/init_parsing.c \
+				$(CONFIG_DIR)/init_textures.c
 
 EXEC_SRCS 	= $(EXEC_DIR)/key_input.c \
 				$(EXEC_DIR)/player_direction.c \
@@ -61,14 +62,13 @@ PARS_SRCS 	= $(PARS_DIR)/read_map.c \
 				$(PARS_DIR)/texture_config.c \
 				$(PARS_DIR)/validity_id.c \
 
-RENDER_SRCS = $(RENDER_DIR)/minimap.c \
-				$(RENDER_DIR)/render_main.c \
+RENDER_SRCS = $(RENDER_DIR)/render_main.c \
 				$(RENDER_DIR)/render_raycasting.c \
 				$(RENDER_DIR)/render_utils.c \
-				$(RENDER_DIR)/texture.c
+				$(RENDER_DIR)/texture.c \
+				$(RENDER_DIR)/minimap.c
 
-UTILS_SRCS 	= $(UTILS_DIR)/get_time.c \
-				$(UTILS_DIR)/print_logo.c
+UTILS_SRCS 	= $(UTILS_DIR)/utils.c
 
 SOURCES 	= cub3d.c \
 				$(CONFIG_SRCS) \
@@ -129,7 +129,8 @@ val: $(NAME)
 		--leak-check=full \
 		--show-leak-kinds=all \
 		--track-origins=yes \
-		./$(NAME) ./maps/map2.cub
+		--suppressions=mlx.supp \
+		./$(NAME) ./maps/map_test.cub
 
 valre: re val
 

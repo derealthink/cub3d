@@ -6,11 +6,15 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 18:15:02 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/08 18:40:47 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/13 12:22:07 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exit.h"
+
+static void	free_texinfo(t_texinfo *textures);
+static void	free_map(t_data *game);
+static void	free_colors(t_data *game);
 
 int	free_data(t_data *game)
 {
@@ -18,21 +22,12 @@ int	free_data(t_data *game)
 		free_tab((void **)game->textures);
 	if (game->texture_pixels)
 		free_tab((void **)game->texture_pixels);
-//	free_texinfo(&game->texinfo);
-//	free_map(game);
+	free_texinfo(&game->texinfo);
+	free_map(game);
+	free_colors(game);
 	return (1);
 }
-/*
-static void	free_map(t_data *data)
-{
-	if (data->mapinfo.fd > 0)
-		close(data->mapinfo.fd);
-	if (data->mapinfo.file)
-		free_tab((void **)data->mapinfo.file);
-	if (data->map)
-		free_tab((void **)data->map);
-}
-*/
+
 void	free_tab(void **tab)
 {
 	size_t	i;
@@ -47,5 +42,48 @@ void	free_tab(void **tab)
 	{
 		free(tab);
 		tab = NULL;
+	}
+}
+
+static void	free_texinfo(t_texinfo *textures)
+{
+	if (textures->north)
+		free(textures->north);
+	if (textures->south)
+		free(textures->south);
+	if (textures->west)
+		free(textures->west);
+	if (textures->east)
+		free(textures->east);
+}
+
+static void	free_map(t_data *game)
+{
+	int	i;
+
+	if (!game->map)
+		return ;
+	i = 0;
+	while (i < game->map_height)
+	{
+		if (game->map[i])
+			free(game->map[i]);
+		i++;
+	}
+	free(game->map);
+	game->map = NULL;
+}
+
+static void	free_colors(t_data *game)
+{
+	if (game->id.cc)
+	{
+		free_tab((void **)game->id.cc);
+		game->id.cc = NULL;
+	}
+	if (game->id.cf)
+	{
+		free_tab((void **)game->id.cf);
+		game->id.cf = NULL;
 	}
 }

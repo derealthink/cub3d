@@ -6,14 +6,13 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 16:55:54 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/08 18:09:53 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/13 12:23:28 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
 static void	render_raycasting(t_data *game);
-static void	draw_background(t_data *game);
 
 int	render(t_data *game)
 {
@@ -54,23 +53,23 @@ void	render_frame(t_data *game)
 	fflush(stdout);
 }
 
-static void	draw_background(t_data *game)
+void	draw_background(t_data *game)
 {
 	int	x;
 	int	y;
-	int	color;
+	int	index;
 
 	y = 0;
-	while (y < HEIGHT)
+	while (y < game->win_height)
 	{
-		if (y < HEIGHT / 2)
-			color = 0x183e4b; //game->texinfo.hex_ceiling;
-		else
-			color = 0xd74a49; //game->texinfo.hex_floor;
 		x = 0;
-		while (x < WIDTH)
+		while (x < game->win_width)
 		{
-			frame_put_pixel(&game->frame, x, y, color);
+			index = y * game->win_width + x;
+			if (y < game->win_height / 2)
+				game->frame.addr[index] = game->texinfo.hex_ceiling;
+			else
+				game->frame.addr[index] = game->texinfo.hex_floor;
 			x++;
 		}
 		y++;
@@ -80,27 +79,6 @@ static void	draw_background(t_data *game)
 static void	render_raycasting(t_data *game)
 {
 	init_texture_pixels(game);
-//	init_ray(&game->ray);
 	raycasting(&game->player, game);
+	render_texture_to_frame(game);
 }
-
-/*
-void	render_frame(t_data *game)
-{
-//	mlx_clear_window(game->mlx, game->win);
-	printf("pos_x:%.2f pos_y:%.2f\r", game->player.pos_x, game->player.pos_y);
-	fflush(stdout);
-	render_frame(game);
-	render_minimap(game);
-}
-
-int	render(t_data *game)
-{
-	game->player.has_moved = game->player.has_moved + player_move(game);
-	if (game->player.has_moved == 0)
-		return (0);
-//	usleep(16667);
-	render_loop(game);
-	return (0);
-}
-*/

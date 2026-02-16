@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/08 18:48:48 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/13 12:12:04 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # define IMG_PXL 6
 # define MINI_W 300
 # define MINI_H 300
+
+# define TEX_SIZE 64
 
 # define FRAME_RATE_MS 33.33 // 16.67 - 33.33 - 50
 # define SPEED 0.05
@@ -76,36 +78,24 @@ typedef struct s_ulines
 	int				max;
 }	t_ulines;
 
+typedef struct s_rect
+{
+	int	x;
+	int	y;
+	int	size;
+	int	color;
+}	t_rect;
+
 typedef struct s_img
 {
 	void	*img;
-	char	*addr;
+	int		*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
 	int		width;
 	int		height;
 }	t_img;
-
-/*
-typedef struct s_texture
-{
-	char			*north;
-	char			*south;
-	char			*west;
-	char			*east;
-	int				*floor;
-	int				*ceiling;
-	unsigned long	hex_floor;
-	unsigned long	hex_ceiling;
-	int				size;
-	int				index;
-	double			step;
-	double			pos;
-	int				x;
-	int				y;
-}	t_texture;
-*/
 
 typedef struct s_player
 {
@@ -121,6 +111,30 @@ typedef struct s_player
 	int		move_y;
 	int		rotate;
 }	t_player;
+
+enum e_texture_index
+{
+	NORTH = 0,
+	SOUTH = 1,
+	EAST = 2,
+	WEST = 3
+};
+
+typedef struct s_texinfo
+{
+	char			*north;
+	char			*south;
+	char			*west;
+	char			*east;
+	unsigned long	hex_floor;
+	unsigned long	hex_ceiling;
+	int				size;
+	int				index;
+	double			step;
+	double			pos;
+	int				x;
+	int				y;
+}	t_texinfo;
 
 typedef struct s_ray
 {
@@ -149,7 +163,6 @@ typedef struct s_data
 	void		*win;
 	int			win_height;
 	int			win_width;
-//	t_mapinfo	mapinfo;
 	char		**map;
 	int			map_height;
 	int			map_width;
@@ -157,7 +170,7 @@ typedef struct s_data
 	t_config	id; //da rinominare texture_id
 	int			**texture_pixels;
 	int			**textures;
-//	t_texinfo	texinfo;
+	t_texinfo	texinfo;
 	t_ray		ray;
 	t_img		frame;
 	t_img		minimap;

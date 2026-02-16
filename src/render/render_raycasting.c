@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:40:40 by alexa             #+#    #+#             */
-/*   Updated: 2026/02/08 17:59:55 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/13 11:15:30 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,11 @@ int	raycasting(t_player *player, t_data *game)
 		init_dda(&ray, player);
 		perform_dda(game, &ray);
 		calculate_line_height(&ray, player);
-//		update_texture_pixels(game, &game->texinfo, &ray, x);
-draw_wireframe_column(game, &ray, x); //da eliminare quando update_texture_pixels e´ pronto
+		update_texture_pixels(game, &game->texinfo, &ray, x);
 		x++;
 	}
 	return (0);
 }
-
-/*
-We initialize the set up for the rays
-- camera_x -> Where is the camera (-1 = left, 0 = center, 1 = right)
-- dir_x/y = direction of the ray
-- map_x/y = current square of the ray
-- deltadist_x/y = distance to go to the next x or y.
-*/
 
 static void	init_raycasting(int x, t_ray *ray, t_player *player)
 {
@@ -53,10 +44,10 @@ static void	init_raycasting(int x, t_ray *ray, t_player *player)
 	ray->dir_y = player->dir_y + player->plane_y * ray->camera_x;
 	ray->map_x = (int)player->pos_x;
 	ray->map_y = (int)player->pos_y;
-//	ray->deltadist_x = fabs(1 / ray->dir_x);
-//	ray->deltadist_y = fabs(1 / ray->dir_y);
+	ray->deltadist_x = fabs(1 / ray->dir_x);
+	ray->deltadist_y = fabs(1 / ray->dir_y);
 	if (ray->dir_x == 0)
-		ray->deltadist_x = 1e30; // Use a very large number to avoid division by zero
+		ray->deltadist_x = 1e30;
 	else
 		ray->deltadist_x = fabs(1 / ray->dir_x);
 	if (ray->dir_y == 0)
@@ -64,15 +55,6 @@ static void	init_raycasting(int x, t_ray *ray, t_player *player)
 	else
 		ray->deltadist_y = fabs(1 / ray->dir_y);
 }
-
-/*
-- We are doing the initial set up for the dda
-- dda algorithm will jump one square in each loop eiter in a x or y direction
-- ray->sidedist_x or y = distance from the ray start position to the
-	next x or y position
-- if x or y < 0 go the next x or y to the left
-- if x or y > 0 go the next x or y to the right
-*/
 
 static void	init_dda(t_ray *ray, t_player *player)
 {
@@ -97,12 +79,6 @@ static void	init_dda(t_ray *ray, t_player *player)
 		ray->sidedist_y = (ray->map_y + 1.0 - player->pos_y) * ray->deltadist_y;
 	}
 }
-
-/*
-- We implement the DDA algorithm -> the loop will increment 1 square 
--   until we hit a wall
-- If the sidedistx < sidedisty, x is the closest point from the ray
-*/
 
 static void	perform_dda(t_data *game, t_ray *ray)
 {

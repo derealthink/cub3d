@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 16:37:37 by aielo             #+#    #+#             */
-/*   Updated: 2026/01/29 14:23:46 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/13 11:09:17 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static bool	is_valid_position(t_data *game, double x, double y)
 		return (false);
 	return (true);
 }
-// da rivedere, non vanno?
 
 static bool	is_valid_in_map(t_data *game, double x, double y)
 {

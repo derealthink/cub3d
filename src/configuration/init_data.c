@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:17:38 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/08 18:09:19 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/13 12:20:02 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ static void	init_player(t_player *player);
 
 void	init_data(t_data *game)
 {
-
 	game->mlx = NULL;
 	game->win = NULL;
 	game->win_width = WIDTH;
 	game->win_height = HEIGHT;
 	init_player(&game->player);
+	init_texinfo(&game->texinfo);
 	init_img_data(&game->minimap);
 	init_config(&game->id);
 	game->map = NULL;
@@ -74,4 +74,19 @@ void	init_ray(t_ray *ray)
 	ray->line_height = 0;
 	ray->draw_start = 0;
 	ray->draw_end = 0;
+}
+
+void	init_texinfo(t_texinfo *textures)
+{
+	textures->north = NULL;
+	textures->south = NULL;
+	textures->west = NULL;
+	textures->east = NULL;
+	textures->hex_floor = 0x0;
+	textures->hex_ceiling = 0x0;
+	textures->size = TEX_SIZE;
+	textures->step = 0.0;
+	textures->pos = 0.0;
+	textures->x = 0;
+	textures->y = 0;
 }
