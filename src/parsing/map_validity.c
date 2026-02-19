@@ -64,7 +64,9 @@ int is_fline_val(t_ulines *head)
             while (i <= len)
             {
                 if (!is_mapc_val(current->line[i]))
+				{
                     return (0);
+				}
                 i++;
            }
         }

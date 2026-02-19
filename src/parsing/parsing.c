@@ -36,12 +36,14 @@ int caller_id(t_ulines *head, t_config *id)
     if (!no_config(head, id) || !so_config(head,id) || 
     !ea_config(head, id) || !we_config(head, id))
     {
-        perror(": Texture error");
+//        perror(": Texture error");
+		error_msg(ERR_PARSE_TEX, 1);
         return (0);
     }
     if (!cc_config(head, id) || !cf_config(head, id))
     {
-        perror(": Color error");
+//        perror(": Color error");
+		error_msg(ERR_PARSE_COLOR, 1);
         return (0);
     }
     printf("exiting caller_id safely\n");
@@ -61,7 +63,8 @@ int list_to_struct(char *filename, t_data *game)
     if (!validate_all(&d, head))
     {
         free_list(head);
-        printf("not validated\n");
+//        printf("not validated\n");
+		error_msg(ERR_NO_VALIDATE, 1);
         return (0);
     }
     printf("validated parsing\n");

@@ -1,13 +1,13 @@
-NO ./texture/blue_stone.xpm
+NO ./texture/stone.xpm
 
-SO ./texture/color_stone.xpm
+SO ./texture/brick.xpm
 
-WE ./texture/grey_stone.xpm
+WE ./texture/metal.xpm
 
-EA ./texture/purple_stone.xpm
+EA ./texture/wood.xpm
 
-F 51,0,0
-C 0,0,225
+F 0,51,0
+C 25,0,0
 
 1111111111111111111111111
 1000000000110000000000001

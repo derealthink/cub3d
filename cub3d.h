@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/13 12:12:04 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/19 14:40:24 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,15 @@
 # define FRAME_RATE_MS 33.33 // 16.67 - 33.33 - 50
 # define SPEED 0.05
 
-# define ERR_WRONG_INPUT "wrong input: ./cub3d <path/to/map.cub>"
-# define ERR_MALLOC "Could not allocate memory"
-# define ERR_MLX_START "Could not start mlx"
-# define ERR_MLX_IMG "Could not create mlx image"
+# define ERR_WRONG_INPUT "wrong input. Use the correct sintax: ./cub3d <path/to/map.cub>"
+# define ERR_WRONG_MAP "map file cannot be opened"
+# define ERR_NO_VALIDATE "text cannot be validated"
+# define ERR_PARSE_TEX "parsing texture error"
+# define ERR_PARSE_COLOR "parsing color error"
+# define ERR_PLAYER "player error"
+# define ERR_MALLOC "could not allocate memory"
+# define ERR_MLX_START "could not start mlx"
+# define ERR_MLX_IMG "could not create mlx image"
 
 # define MAP_PLAYER_COLOR 0x27D3F5
 # define MAP_WALL_COLOR 0xFF0000

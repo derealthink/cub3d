@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:12:14 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/13 13:01:33 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/19 14:26:38 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static void	set_player(t_data *game) // settare il player con spawn
 			if (game->map[y][x] == 'N' || game->map[y][x] == 'S'
 				|| game->map[y][x] == 'E' || game->map[y][x] == 'W')
 			{
-				game->player.dir = 'N'; // info spawn da parsing
+				game->player.dir = 'N'; // info spawn da parsing - 
 				init_player_direction(game);
 				game->player.pos_x = x;
 				game->player.pos_y = y;

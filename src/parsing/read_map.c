@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:20:51 by uponci            #+#    #+#             */
-/*   Updated: 2026/01/27 15:24:47 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/19 14:21:48 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char    **call_map(char *file)
     fd = open_map(file);
     if (fd < 0)
     {
-        error_msg("map file cannot be opened", 1);
+        error_msg(ERR_WRONG_MAP, 1);
         return (NULL);
     }
     count = count_lines(fd);
