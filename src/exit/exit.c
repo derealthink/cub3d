@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 15:27:06 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/13 11:43:04 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/19 17:25:11 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,16 @@ int	quit_game(t_data *game)
 {
 	clean_exit(game, 0);
 	return (0);
+}
+
+void	free_config(t_data *game)
+{
+	if (game->id.no)
+		free(game->id.no);
+	if (game->id.so)
+		free(game->id.so);
+	if (game->id.ea)
+		free(game->id.ea);
+	if (game->id.we)
+		free(game->id.we);
 }

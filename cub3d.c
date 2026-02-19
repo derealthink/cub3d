@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:12:14 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/19 14:26:38 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/19 17:25:56 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include "utils.h"
 
 static void	set_player(t_data *game);
-static void	free_config(t_data *game);
 
 int	main(int argc, char **argv)
 {
@@ -50,7 +49,7 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-static void	set_player(t_data *game) // settare il player con spawn
+static void	set_player(t_data *game)
 {
 	size_t	x;
 	size_t	y;
@@ -64,13 +63,9 @@ static void	set_player(t_data *game) // settare il player con spawn
 			if (game->map[y][x] == 'N' || game->map[y][x] == 'S'
 				|| game->map[y][x] == 'E' || game->map[y][x] == 'W')
 			{
-<<<<<<< HEAD
-				game->player.dir = 'N'; // info spawn da parsing - 
-=======
 				game->player.dir = find_player_char(game->map);
 				if (game->player.dir == '0')
-					error_msg("player", 1);
->>>>>>> ca2fa7c10069ae8c46cdb2fa008cb54f5ee2fc4c
+					error_msg(ERR_PLAYER, 1);
 				init_player_direction(game);
 				game->player.pos_x = x;
 				game->player.pos_y = y;
@@ -80,37 +75,3 @@ static void	set_player(t_data *game) // settare il player con spawn
 		y++;
 	}
 }
-
-static void	free_config(t_data *game)
-{
-	if (game->id.no)
-		free(game->id.no);
-	if (game->id.so)
-		free(game->id.so);
-	if (game->id.ea)
-		free(game->id.ea);
-	if (game->id.we)
-		free(game->id.we);
-}
-
-/*
-if (final_parser(argv[1], &game))
-{
-	//init_player_direction(&game); // da spostare in parse_args?
-	printf("passed final parser tests\n");
-	set_player_for_test(&game);
-	init_mlx(&game);
-	init_textures(&game);
-	print_infos();
-	check_input(&game);
-//--DELETE!	render_frame(&game);
-	mlx_loop_hook(game.mlx, render, &game);
-	mlx_loop(game.mlx);
-	return (0);
-}
-	printf("Texture size: %d\n", game.texinfo.size);
-	printf("Texture NORTH: %p\n", (void *)game.textures[NORTH]);
-	printf("Texture SOUTH: %p\n", (void *)game.textures[SOUTH]);
-	printf("Texture EAST: %p\n", (void *)game.textures[EAST]);
-	printf("Texture WEST: %p\n", (void *)game.textures[WEST]);
-	*/

@@ -1,13 +1,13 @@
-NO ./texture/blue_stone.xpm
+NO ./texture/brick/brick_1a.xpm
 
-SO ./texture/color_stone.xpm
+SO ./texture/brick/brick_2b.xpm
 
-WE ./texture/grey_stone.xpm
+WE ./texture/brick/brick_3b.xpm
 
-EA ./texture/purple_stone.xpm
+EA ./texture/brick/brick_4a.xpm
 
-F 100, 71, 63
-C 74, 88, 124
+F 126,64,37
+C 115,110,110
 
 1111111111111111111111111
 1000000000110000000000001

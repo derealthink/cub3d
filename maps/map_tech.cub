@@ -1,13 +1,13 @@
-NO ./texture/stone.xpm
+NO ./texture/tech/tech_1c.xpm
 
-SO ./texture/brick.xpm
+SO ./texture/tech/tech_1e.xpm
 
-WE ./texture/metal.xpm
+WE ./texture/tech/tech_2f.xpm
 
-EA ./texture/wood.xpm
+EA ./texture/tech/tech_4f.xpm
 
-F 0,51,0
-C 25,0,0
+F 115,110,110
+C 204,174,97
 
 1111111111111111111111111
 1000000000110000000000001

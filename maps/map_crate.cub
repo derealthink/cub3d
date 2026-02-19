@@ -1,13 +1,13 @@
-NO ./texture/blue_stone.xpm
+NO ./texture/crate/crate_1d.xpm
 
-SO ./texture/color_stone.xpm
+SO ./texture/crate/crate_1e.xpm
 
-WE ./texture/grey_stone.xpm
+WE ./texture/crate/crate_2c.xpm
 
-EA ./texture/purple_stone.xpm
+EA ./texture/crate/crate_2m.xpm
 
-F 100, 71, 63
-C 74, 88, 124
+F 115,110,110
+C 63,55,55
 
 1111111111111111111111111
 1000000000110000000000001

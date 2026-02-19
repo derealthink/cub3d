@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:33:39 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/13 12:38:19 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/19 17:25:08 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int		quit_game(t_data *game);
 
 int		free_data(t_data *game);
 void	free_tab(void **tab);
+void	free_config(t_data *game);
 
 #endif

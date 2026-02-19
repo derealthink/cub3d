@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/19 14:40:24 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/19 17:24:24 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define ERR_NO_VALIDATE "text cannot be validated"
 # define ERR_PARSE_TEX "parsing texture error"
 # define ERR_PARSE_COLOR "parsing color error"
-# define ERR_PLAYER "player error"
+# define ERR_PLAYER "parsing player error"
 # define ERR_MALLOC "could not allocate memory"
 # define ERR_MLX_START "could not start mlx"
 # define ERR_MLX_IMG "could not create mlx image"
