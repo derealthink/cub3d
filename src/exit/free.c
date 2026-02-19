@@ -87,3 +87,5 @@ static void	free_colors(t_data *game)
 		game->id.cf = NULL;
 	}
 }
+
+

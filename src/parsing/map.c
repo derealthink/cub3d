@@ -28,6 +28,31 @@ int	get_map_width(char **map)
 	}
 	return (w);
 }
+char find_player_char(char **map)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'N')
+				return ('N');
+			else if (map[i][j] == 'S')
+				return ('S');
+			else if (map[i][j] == 'E')
+				return ('E');
+			else if (map[i][j] == 'W')
+				return ('W');
+			j++;
+		}
+		i++;
+	}
+	return ('0');
+}
 
 int	final_parser(char *filename, t_data *game)
 {
