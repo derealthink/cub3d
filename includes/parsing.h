@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include "cub3d.h"
 # include "libft.h"
+# include "exit.h"
 
 int 	    is_empty_line(char *line);
 int 	    is_space(char c);

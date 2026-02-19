@@ -14,10 +14,14 @@
 
 void	init_textures(t_data *game)
 {
-	game->texinfo.north = game->id.no; //da spostare in parsing
-	game->texinfo.south = game->id.so; //da spostare in parsing
-	game->texinfo.east = game->id.ea; //da spostare in parsing
-	game->texinfo.west = game->id.we; //da spostare in parsing
+	game->texinfo.north = game->id.no;
+	game->id.no = NULL;
+	game->texinfo.south = game->id.so;
+	game->id.so = NULL;
+	game->texinfo.east = game->id.ea;
+	game->id.ea = NULL;
+	game->texinfo.west = game->id.we;
+	game->id.we = NULL;
 	game->textures = ft_calloc(5, sizeof * game->textures);
 	if (!game->textures)
 		clean_exit(game, error_msg(ERR_MALLOC, 1));

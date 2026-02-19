@@ -71,10 +71,13 @@ char    **call_map(char *file)
     int     fd;
     char    **map;
 
-    printf("entered call map\n");
+//    printf("entered call map\n");
     fd = open_map(file);
     if (fd < 0)
+    {
+        error_msg("map file cannot be opened", 1);
         return (NULL);
+    }
     count = count_lines(fd);
     close(fd);
     map = create_map(count, file);
