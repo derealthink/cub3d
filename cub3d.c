@@ -18,6 +18,7 @@
 #include "utils.h"
 
 static void	set_player(t_data *game);
+static void	free_config(t_data *game);
 
 int	main(int argc, char **argv)
 {
@@ -44,6 +45,8 @@ int	main(int argc, char **argv)
 		mlx_loop(game.mlx);
 		return (0);
 	}
+	free_data(&game);
+	free_config(&game);
 	return (0);
 }
 
@@ -61,7 +64,13 @@ static void	set_player(t_data *game) // settare il player con spawn
 			if (game->map[y][x] == 'N' || game->map[y][x] == 'S'
 				|| game->map[y][x] == 'E' || game->map[y][x] == 'W')
 			{
+<<<<<<< HEAD
 				game->player.dir = 'N'; // info spawn da parsing - 
+=======
+				game->player.dir = find_player_char(game->map);
+				if (game->player.dir == '0')
+					error_msg("player", 1);
+>>>>>>> ca2fa7c10069ae8c46cdb2fa008cb54f5ee2fc4c
 				init_player_direction(game);
 				game->player.pos_x = x;
 				game->player.pos_y = y;
@@ -70,6 +79,18 @@ static void	set_player(t_data *game) // settare il player con spawn
 		}
 		y++;
 	}
+}
+
+static void	free_config(t_data *game)
+{
+	if (game->id.no)
+		free(game->id.no);
+	if (game->id.so)
+		free(game->id.so);
+	if (game->id.ea)
+		free(game->id.ea);
+	if (game->id.we)
+		free(game->id.we);
 }
 
 /*

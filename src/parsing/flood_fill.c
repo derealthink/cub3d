@@ -40,7 +40,10 @@ static int	flood_fill_rec(char **map, int width, int height, int x, int y)
 	if (c == ' ')
 		return (0);
 	if (!(c == '0' || is_player_char(c)))
+	{
+		error_msg("player", 1);
 		return (0);
+	}
 	map[y][x] = 'V';
 	if (!flood_fill_rec(map, width, height, x + 1, y))
 		return (0);
@@ -60,6 +63,7 @@ int	flood_fill(t_data *game)
 	char	**map_copy;
 	int		ok;
 
+	printf("entereing floodfill\n");
 	if (!game || !game->map)
 		return (0);
 	if (game->map_height <= 0 || game->map_width <= 0)
@@ -71,5 +75,6 @@ int	flood_fill(t_data *game)
 	py = (int)game->player.pos_y;
 	ok = flood_fill_rec(map_copy, game->map_width, game->map_height, px, py);
 	free_map(map_copy);
+	printf("exiting flood fill %d\n", ok);
 	return (ok);
 }
