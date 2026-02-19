@@ -124,7 +124,7 @@ fclean: clean
 re: fclean all
 
 # Valgrind rules ( --suppressions=mlx.supp \ )
-val: $(NAME)
+val: all
 	valgrind \
 		--leak-check=full \
 		--show-leak-kinds=all \
