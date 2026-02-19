@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+         #
+#    By: aielo <aielo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/24 17:03:34 by aielo             #+#    #+#              #
-#    Updated: 2026/02/13 11:47:34 by aielo            ###   ########.fr        #
+#    Updated: 2026/02/19 14:14:47 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,7 +124,7 @@ fclean: clean
 re: fclean all
 
 # Valgrind rules ( --suppressions=mlx.supp \ )
-val: $(NAME)
+val: all
 	valgrind \
 		--leak-check=full \
 		--show-leak-kinds=all \
