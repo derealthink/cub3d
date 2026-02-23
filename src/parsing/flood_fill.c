@@ -1,10 +1,10 @@
 #include "parsing.h"
 #include "utils.h"
 
-static int	is_player_char(char c)
+/*static int	is_player_char(char c)
 {
 	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
-}
+}*/
 
 /*static int	has_space_neighbor(char **map, int width, int height, int x, int y)
 {
@@ -80,7 +80,7 @@ static char	**copy_map(char **map, int height)
 	return (dup);
 }
 
-static int	flood_fill_rec(char **map, int width, int height, int x, int y)
+/*static int	flood_fill_rec(char **map, int width, int height, int x, int y)
 {
 	char	c;
 
@@ -113,7 +113,7 @@ static int	flood_fill_rec(char **map, int width, int height, int x, int y)
 	if (!flood_fill_rec(map, width, height, x, y - 1))
 		return (0);
 	return (1);
-}
+}*/
 
 int	flood_fill(t_data *game)
 {
@@ -140,7 +140,8 @@ int	flood_fill(t_data *game)
 	printf("width: %i height: %i\n", game->map_width, game->map_height);
 	px = (int)game->player.pos_x;
 	py = (int)game->player.pos_y;
-	ok = flood_fill_rec(map_copy, game->map_width, game->map_height, px, py);
+	ok = 1;
+	//ok = flood_fill_rec(map_copy, game->map_width, game->map_height, px, py);
 	free_map(map_copy);
 	return (ok);
 }
