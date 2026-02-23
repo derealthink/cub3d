@@ -32,7 +32,7 @@ char    *trim_lead(char *line)
     i = 0;
     while (is_space(line[i]))
         i++;
-    if (line[i + 1] && (line[i + 1] != '1'))
+    if (line[i] != '1')
     {
         start = 0;
         while (line[start] && line[start] <= 32)
