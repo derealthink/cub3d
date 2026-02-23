@@ -18,6 +18,7 @@
 #include "utils.h"
 
 static void	set_player(t_data *game);
+void	print_map(t_data *game);
 
 int	main(int argc, char **argv)
 {
@@ -39,6 +40,7 @@ int	main(int argc, char **argv)
 		init_texture_pixels(&game);
 		printf("Texture pixels initialized\n");
 		print_infos();
+		print_map(&game);
 		check_input(&game);
 		mlx_loop_hook(game.mlx, render, &game);
 		mlx_loop(game.mlx);
@@ -74,4 +76,22 @@ static void	set_player(t_data *game)
 		}
 		y++;
 	}
+}
+
+void	print_map(t_data *game)
+{
+	int i = 0;
+	int j;
+	while (game->map[i])
+	{
+		j = 0;
+		while(game->map[i][j])
+		{
+			write(1, &game->map[i][j], 1);
+			j++;
+		}
+		write(1, "\n", 1);
+		i++;
+	}
+
 }

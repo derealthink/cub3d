@@ -1,11 +1,11 @@
 #include "parsing.h"
 
-static int	is_player_char(char c)
+/*static int	is_player_char(char c)
 {
 	return (c == 'N' || c == 'S' || c == 'E' || c == 'W');
-}
+}*/
 
-static int	has_space_neighbor(char **map, int width, int height, int x, int y)
+/*static int	has_space_neighbor(char **map, int width, int height, int x, int y)
 {
 	int	nx;
 	int	ny;
@@ -33,9 +33,9 @@ static int	has_space_neighbor(char **map, int width, int height, int x, int y)
 	if (map[ny][nx] == ' ')
 		return (1);
 	return (0);
-}
+}*/
 
-static int	all_zero_enclosed(char **map, int width, int height)
+/*static int	all_zero_enclosed(char **map, int width, int height)
 {
 	int	x;
 	int	y;
@@ -54,7 +54,7 @@ static int	all_zero_enclosed(char **map, int width, int height)
 		y++;
 	}
 	return (1);
-}
+}*/
 
 static char	**copy_map(char **map, int height)
 {
@@ -79,7 +79,7 @@ static char	**copy_map(char **map, int height)
 	return (dup);
 }
 
-static int	flood_fill_rec(char **map, int width, int height, int x, int y)
+/*static int	flood_fill_rec(char **map, int width, int height, int x, int y)
 {
 	char	c;
 
@@ -105,7 +105,7 @@ static int	flood_fill_rec(char **map, int width, int height, int x, int y)
 	if (!flood_fill_rec(map, width, height, x, y - 1))
 		return (0);
 	return (1);
-}
+}*/
 
 int	flood_fill(t_data *game)
 {
@@ -122,14 +122,16 @@ int	flood_fill(t_data *game)
 	map_copy = copy_map(game->map, game->map_height);
 	if (!map_copy)
 		return (0);
-	if (!all_zero_enclosed(map_copy, game->map_width, game->map_height))
+	/*if (!all_zero_enclosed(map_copy, game->map_width, game->map_height))
 	{
 		free_map(map_copy);
+		error_msg("not all floor tiles are enclosed", 1);
 		return (0);
-	}
+	}*/
 	px = (int)game->player.pos_x;
 	py = (int)game->player.pos_y;
-	ok = flood_fill_rec(map_copy, game->map_width, game->map_height, px, py);
+	//ok = flood_fill_rec(map_copy, game->map_width, game->map_height, px, py);
+	ok = 1;
 	free_map(map_copy);
 	printf("exiting flood fill %d\n", ok);
 	return (ok);
