@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_raycasting.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:40:40 by alexa             #+#    #+#             */
-/*   Updated: 2026/02/13 11:15:30 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/23 14:32:44 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@ static void	perform_dda(t_data *game, t_ray *ray)
 		if (ray->map_x < 0 || ray->map_x >= game->map_width
 			|| ray->map_y < 0 || ray->map_y >= game->map_height)
 			break ;
-		if (game->map[ray->map_y][ray->map_x] > '0')
+//		if (game->map[ray->map_y][ray->map_x] > '0')
+		if (game->map[ray->map_y][ray->map_x] == '1')
 			hit = 1;
 	}
 }
