@@ -22,5 +22,6 @@
 double			get_time_ms(void);
 unsigned long	rgb_to_hex(char **rgb);
 void			print_infos(void);
+void	        print_map(char **map);
 
 #endif

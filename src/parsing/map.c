@@ -1,4 +1,5 @@
 #include "parsing.h"
+#include "utils.h"
 
 int	get_map_height(char **map)
 {
