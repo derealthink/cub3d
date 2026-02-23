@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 22:40:40 by alexa             #+#    #+#             */
-/*   Updated: 2026/02/23 14:32:44 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/23 15:59:39 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,6 @@ static void	perform_dda(t_data *game, t_ray *ray)
 		if (ray->map_x < 0 || ray->map_x >= game->map_width
 			|| ray->map_y < 0 || ray->map_y >= game->map_height)
 			break ;
-//		if (game->map[ray->map_y][ray->map_x] > '0')
 		if (game->map[ray->map_y][ray->map_x] == '1')
 			hit = 1;
 	}
