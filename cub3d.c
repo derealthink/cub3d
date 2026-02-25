@@ -81,16 +81,9 @@ static void	set_player(t_data *game)
 void	print_map(char **map)
 {
 	int i = 0;
-	int j;
 	while (map[i])
 	{
-		j = 0;
-		while(map[i][j])
-		{
-			write(1, &map[i][j], 1);
-			j++;
-		}
-		write(1, "\n", 1);
+		printf("%s\n", map[i]);
 		i++;
 	}
 
