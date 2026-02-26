@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 16:55:54 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/13 12:23:28 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/26 18:49:43 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	render_frame(t_data *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->frame.img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->win, game->minimap.img,
 		10, HEIGHT - (game->map_height * IMG_PXL) - 10);
-	printf("pos_x:%.2f pos_y:%.2f\r", game->player.pos_x, game->player.pos_y);
 	fflush(stdout);
 }
 
