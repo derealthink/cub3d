@@ -44,7 +44,6 @@ char *fill_line(char *line, int max)
     while (i < max)
         res[i++] = ' ';
     res[i] = '\0';
-	printf("exiting fill line\n");
     return (res);
 }
 
@@ -70,7 +69,6 @@ int	fill_map_array(char **arr, t_ulines *head, int len)
 		current = current->next;
 	}
 	arr[len] = NULL;
-	printf("map array correclty filled\n");
 	return (1);
 }
 
@@ -79,7 +77,6 @@ char	**map_config(t_data *game, t_ulines *head)
 	int		len;
 	char	**arr;
 
-	printf("entering map_config\n");
 	(void)game;
 	len = map_line_count(head);
 	arr = malloc(sizeof(char *) * (len + 1));

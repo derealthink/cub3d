@@ -67,7 +67,6 @@ char    **prep_id(char **map)
 
     int i;
 
-    printf("entered prep id\n");
     map = del_empty(map);
     i = 0;
     while (map[i] != NULL)
@@ -76,6 +75,6 @@ char    **prep_id(char **map)
         map[i] = trim_trail(map[i]);
         i++;
     }
-    map = del_empty(map);// in case a line becomes empty
+    map = del_empty(map);
     return (map);
 }

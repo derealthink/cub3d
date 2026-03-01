@@ -79,7 +79,6 @@ int	flood_fill(t_data *game)
 {
 	char	**map_copy;
 
-	printf("entereing floodfill\n");
 	if (!game || !game->map)
 		return (0);
 	if (game->map_height <= 0 || game->map_width <= 0)

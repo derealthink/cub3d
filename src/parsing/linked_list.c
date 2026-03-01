@@ -64,7 +64,6 @@ t_ulines	*parse_to_list(char *file)
 	int		i;
 	t_tline	type;
 
-	printf("entered parse to list\n");
 	map = call_map(file);
 	if (!map)
 		return (NULL);
