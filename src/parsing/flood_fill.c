@@ -90,7 +90,7 @@ int	flood_fill(t_data *game)
 	if (!all_zero_enclosed(map_copy, game->map_width, game->map_height))
 	{
 		free_map(map_copy);
-		error_msg("not all floor tiles are enclosed", 1);
+		error_msg(ERR_FLOOD, 1);
 		return (0);
 	}
 	free_map(map_copy);

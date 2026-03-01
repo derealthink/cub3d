@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:12:14 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/19 17:25:56 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/26 18:48:16 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "utils.h"
 
 static void	set_player(t_data *game);
-
+//static void	print_map(char **map);
 
 int	main(int argc, char **argv)
 {
@@ -29,18 +29,18 @@ int	main(int argc, char **argv)
 	init_data(&game);
 	if (final_parser(argv[1], &game))
 	{
-		printf("passed final parser tests\n");
+//		printf("passed final parser tests\n");
 		set_player(&game);
-		game.texinfo.hex_ceiling = rgb_to_hex(game.id.cc); //da spostare in parsing
-		game.texinfo.hex_floor = rgb_to_hex(game.id.cf); //da spostare in parsing
+		game.texinfo.hex_ceiling = rgb_to_hex(game.id.cc);
+		game.texinfo.hex_floor = rgb_to_hex(game.id.cf);
 		init_mlx(&game);
-		printf("MLX initialized\n");
+//		printf("MLX initialized\n");
 		init_textures(&game);
-		printf("Textures initialized\n");
+//		printf("Textures initialized\n");
 		init_texture_pixels(&game);
-		printf("Texture pixels initialized\n");
+//		printf("Texture pixels initialized\n");
 		print_infos();
-		print_map(game.map);
+//		print_map(game.map);
 		check_input(&game);
 		mlx_loop_hook(game.mlx, render, &game);
 		mlx_loop(game.mlx);
@@ -77,8 +77,8 @@ static void	set_player(t_data *game)
 		y++;
 	}
 }
-
-void	print_map(char **map)
+/*
+static void	print_map(char **map)
 {
 	int i = 0;
 	while (map[i])
@@ -88,3 +88,4 @@ void	print_map(char **map)
 	}
 
 }
+*/

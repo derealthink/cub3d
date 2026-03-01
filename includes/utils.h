@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 16:31:49 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/13 12:40:21 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/26 18:47:47 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@
 double			get_time_ms(void);
 unsigned long	rgb_to_hex(char **rgb);
 void			print_infos(void);
-void	        print_map(char **map);
 
 #endif
