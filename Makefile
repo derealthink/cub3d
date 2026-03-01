@@ -61,6 +61,7 @@ PARS_SRCS 	= $(PARS_DIR)/read_map.c \
 				$(PARS_DIR)/prep_id.c \
 				$(PARS_DIR)/texture_config.c \
 				$(PARS_DIR)/validity_id.c \
+				$(PARS_DIR)/parse_utils_1.c \
 
 RENDER_SRCS = $(RENDER_DIR)/render_main.c \
 				$(RENDER_DIR)/render_raycasting.c \

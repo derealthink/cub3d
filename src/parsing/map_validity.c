@@ -11,7 +11,7 @@ int is_first_val(t_ulines *head)
         if(current->type == MAP_LINE)
         {
             i = 0;
-            while ( is_space(current->line[i]))
+            while (is_space(current->line[i]))
                 i++;
             if (current->line[i] != '1')
                 return (0);

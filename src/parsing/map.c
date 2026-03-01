@@ -17,7 +17,6 @@ int	get_map_width(char **map)
 	int i;
 	int len;
 
-	printf("entering map width\n");
 	w = 0;
 	i = 0;
 	while (map[i])
@@ -57,7 +56,6 @@ char find_player_char(char **map)
 
 int	final_parser(char *filename, t_data *game)
 {
-	printf("entered final parser\n");
 	if (!list_to_struct(filename,game))
 		return (0);
 	game->map_height = get_map_height(game->map);
