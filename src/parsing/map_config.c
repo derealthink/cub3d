@@ -27,24 +27,25 @@ int	map_line_count(t_ulines *head)
 	}
 	return (count);
 }
-char *fill_line(char *line, int max)
-{
-    char    *res;
-    int     len;
-    int     i;
 
-    if (!line || max <= 0)
-        return (NULL);
-    len = ft_strlen(line);
-    res = malloc(sizeof(char) * (max + 1));
-    if (!res)
-        return (NULL);
-    ft_memcpy(res, line, len);
-    i = len;
-    while (i < max)
-        res[i++] = ' ';
-    res[i] = '\0';
-    return (res);
+char	*fill_line(char *line, int max)
+{
+	char	*res;
+	int		len;
+	int		i;
+
+	if (!line || max <= 0)
+		return (NULL);
+	len = ft_strlen(line);
+	res = malloc(sizeof(char) * (max + 1));
+	if (!res)
+		return (NULL);
+	ft_memcpy(res, line, len);
+	i = len;
+	while (i < max)
+		res[i++] = ' ';
+	res[i] = '\0';
+	return (res);
 }
 
 int	fill_map_array(char **arr, t_ulines *head, int len)
@@ -86,4 +87,3 @@ char	**map_config(t_data *game, t_ulines *head)
 		return (NULL);
 	return (arr);
 }
-

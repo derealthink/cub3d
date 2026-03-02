@@ -12,74 +12,73 @@
 
 #include "parsing.h"
 
-static int  open_map(char *file)
+static int	open_map(char *file)
 {
-    int     fd;
+	int	fd;
 
-    fd = 0;
-    fd = open(file, O_RDONLY);
-    if (fd < 0)
-        return (-1);
-    return (fd);
+	fd = 0;
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		return (-1);
+	return (fd);
 }
 
-static int  count_lines(int fd)
+static int	count_lines(int fd)
 {
-    char    *line;
-    int     count;
+	char	*line;
+	int		count;
 
-    count = 0;
-    while ((line = get_next_line(fd)))
-    {
-        count ++;
-        free(line); //may be not needed 
-    }
-    return (count);
+	count = 0;
+	while ((line = get_next_line(fd)))
+	{
+		count ++;
+		free(line);
+	}
+	return (count);
 }
 
-static char  **create_map(int count, char *file)
+static char	**create_map(int count, char *file)
 {
-    char    **res;
-    int     i;
-    char    *line;
-    int     fd;
+	char	**res;
+	int		i;
+	char	*line;
+	int		fd;
 
-    fd = open_map(file);
-    res = malloc(sizeof(char *) * (count + 1));
-    if (!res)
-        return (NULL);
-    i = 0;
-    while (i < count)
-    {
-        line = get_next_line(fd);
-        if (line == NULL)
-        {
-            free(res);
-            return (NULL);
-        }
-        res[i] = line;
-        i++;
-    }
-    res[count] = NULL;
-    close(fd);
-    return (res);
+	fd = open_map(file);
+	res = malloc(sizeof(char *) * (count + 1));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (i < count)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+		{
+			free(res);
+			return (NULL);
+		}
+		res[i] = line;
+		i++;
+	}
+	res[count] = NULL;
+	close(fd);
+	return (res);
 }
 
-char    **call_map(char *file)
+char	**call_map(char *file)
 {
-    int     count;
-    int     fd;
-    char    **map;
+	int		count;
+	int		fd;
+	char	**map;
 
-    fd = open_map(file);
-    if (fd < 0)
-    {
-        error_msg(ERR_WRONG_MAP, 1);
-        return (NULL);
-    }
-    count = count_lines(fd);
-    close(fd);
-    map = create_map(count, file);
-
-    return (map);
+	fd = open_map(file);
+	if (fd < 0)
+	{
+		error_msg(ERR_WRONG_MAP, 1);
+		return (NULL);
+	}
+	count = count_lines(fd);
+	close(fd);
+	map = create_map(count, file);
+	return (map);
 }

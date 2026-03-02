@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   linked_list.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uponci <uponci@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/02 10:53:11 by uponci            #+#    #+#             */
+/*   Updated: 2026/03/02 10:53:13 by uponci           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parsing.h"
 #include "configuration.h"
 
@@ -56,20 +68,13 @@ t_tline	line_type(char *line)
 	return (MAP_LINE);
 }
 
-t_ulines	*parse_to_list(char *file)
+static t_ulines	*build_list_from_map(char **map)
 {
-	char	**map;
 	t_ulines	*head;
 	t_ulines	*node;
-	int		i;
-	t_tline	type;
+	t_tline		type;
+	int			i;
 
-	map = call_map(file);
-	if (!map)
-		return (NULL);
-	map = prep_id(map);
-	if (!map)
-		return (NULL);
 	head = NULL;
 	i = 0;
 	while (map[i])
@@ -78,13 +83,27 @@ t_ulines	*parse_to_list(char *file)
 		node = create_node(map[i], type);
 		if (!node)
 		{
-			free_map(map);
-            free_list(head);
+			free_list(head);
 			return (NULL);
 		}
 		add_to_list(&head, node);
 		i++;
 	}
+	return (head);
+}
+
+t_ulines	*parse_to_list(char *file)
+{
+	char		**map;
+	t_ulines	*head;
+
+	map = call_map(file);
+	if (!map)
+		return (NULL);
+	map = prep_id(map);
+	if (!map)
+		return (NULL);
+	head = build_list_from_map(map);
 	free_map(map);
 	return (head);
 }
