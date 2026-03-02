@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/26 18:39:08 by aielo            ###   ########.fr       */
+/*   Updated: 2026/03/02 14:19:09 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define FRAME_RATE_MS 33.33 // 16.67 - 33.33 - 50
 # define SPEED 0.05
 
-# define ERR_WRONG_INPUT "wrong input. Use the correct sintax: ./cub3d <path/to/map.cub>"
+# define ERR_WRONG_INPUT "wrong input: ./cub3d <path/to/map.cub>"
 # define ERR_WRONG_MAP "map file cannot be opened"
 # define ERR_NO_VALIDATE "text cannot be validated"
 # define ERR_PARSE_TEX "parsing texture error"
@@ -173,7 +173,7 @@ typedef struct s_data
 	int			map_height;
 	int			map_width;
 	t_player	player;
-	t_config	id; //da rinominare texture_id
+	t_config	id;
 	int			**texture_pixels;
 	int			**textures;
 	t_texinfo	texinfo;
