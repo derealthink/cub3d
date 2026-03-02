@@ -1,10 +1,8 @@
-*This project has been created as part of the 42 curriculum by <aielo>aielo, <uponci>uponci*
+*This project has been created as part of the 42 curriculum by <aielo>aielo and <uponci>uponci.*
 
 ## Description 
 
-We must create a “realistic” 3D graphical representation of the inside of a maze from a first-person perspective.
-
-We have to create this representation using the ray-casting principles.
+Using miniLibX and ray-casting principles we must create a “realistic” 3D graphical representation of a maze from a first-person perspective, modelled on the style of Wolfenstein 3D.
 
 ## Instructions
 The program displays the image in a window and respects the following rules:
@@ -17,10 +15,19 @@ the maze.
 quit the program cleanly.
 
 ## Resources
-Raycasting is a rendering technique to create a 3D perspective in a 2D map. 
+Raycasting is a rendering technique used to create a 3D perspective in a 2D map.  
+
+It works by projecting rays from the player’s position at regular angular intervals across their field of view.<br>
+Each ray travels until it hits a wall, and the distance determines the apparent height of the wall on the screen.<br>
+<br>
+
+https://en.wikipedia.org/wiki/Ray_casting
 
 https://lodev.org/cgtutor/raycasting.html
 
+https://devabdilah.medium.com/3d-ray-casting-game-with-cub3d-7a116376056a
+
 https://medium.com/@elmehdielgarouaz/from-flat-to-fantastic-how-cub3ds-ray-casting-engine-transforms-2d-into-3d-647ff2f7fd4f
 
-https://devabdilah.medium.com/3d-ray-casting-game-with-cub3d-7a116376056a
+<br>
+AI was used to handle the mathematics involved in ray casting and the DDA algorithm.
