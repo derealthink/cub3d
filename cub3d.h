@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:29:22 by aielo             #+#    #+#             */
-/*   Updated: 2026/02/19 17:24:24 by aielo            ###   ########.fr       */
+/*   Updated: 2026/02/26 18:39:08 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define ERR_PARSE_TEX "parsing texture error"
 # define ERR_PARSE_COLOR "parsing color error"
 # define ERR_PLAYER "parsing player error"
+# define ERR_FLOOD "not all floor tiles are enclosed"
 # define ERR_MALLOC "could not allocate memory"
 # define ERR_MLX_START "could not start mlx"
 # define ERR_MLX_IMG "could not create mlx image"

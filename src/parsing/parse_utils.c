@@ -1,24 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uponci <uponci@student.42berlin.de>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/02 10:53:44 by uponci            #+#    #+#             */
+/*   Updated: 2026/03/02 10:53:46 by uponci           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "parsing.h"
 
-int is_space(char c)
+int	is_space(char c)
 {
-    if (c <= 32)
-        return (1);
-    return (0);
+	if (c <= 32)
+		return (1);
+	return (0);
 }
 
-int is_empty_line(char *line)
+int	is_empty_line(char *line)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!line)
-        return (0);
-    while (line[i] && is_space(line[i]))
-    {
-        i++;
-    }
-    return (line[i] == '\0');
+	i = 0;
+	if (!line)
+		return (0);
+	while (line[i] && is_space(line[i]))
+	{
+		i++;
+	}
+	return (line[i] == '\0');
 }
 
 void	free_list(t_ulines *head)
@@ -48,37 +60,17 @@ void	free_map(char **map)
 	}
 	free(map);
 }
-int str_has_digit(char *s)
-{
-    int i;
 
-    i = 0;
-    while (s[i])
-    {
-        if (ft_isdigit(s[i]))
-            return (1);
-        i++;
-    }
-    return (0);
-}
-
-int is_mapc_val(char c)
+int	str_has_digit(char *s)
 {
-    if (c == '1' || c == '0' ||
-    c == 'N' || c == 'S' || c == 'E' ||
-    c == 'W' || c == ' ')
-        return (1);
-    return (0);
-}
-void free_split(char **arr)
-{
-    int i;
+	int	i;
 
-    i = 0;
-    while (arr[i] != NULL)
-    {
-        free(arr[i]);
-        i++;
-    }
-    free(arr);
+	i = 0;
+	while (s[i])
+	{
+		if (ft_isdigit(s[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }
