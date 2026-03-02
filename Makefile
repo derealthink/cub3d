@@ -6,7 +6,7 @@
 #    By: aielo <aielo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/24 17:03:34 by aielo             #+#    #+#              #
-#    Updated: 2026/02/19 14:14:47 by aielo            ###   ########.fr        #
+#    Updated: 2026/03/02 14:02:50 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -131,7 +131,7 @@ val: all
 		--show-leak-kinds=all \
 		--track-origins=yes \
 		--suppressions=mlx.supp \
-		./$(NAME) ./maps/map_test.cub
+		./$(NAME) ./maps/map_wolf.cub
 
 valre: re val
 
