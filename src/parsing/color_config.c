@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color_config.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uponci <uponci@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 10:50:50 by uponci            #+#    #+#             */
-/*   Updated: 2026/03/02 10:50:53 by uponci           ###   ########.fr       */
+/*   Updated: 2026/03/05 16:46:57 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,23 @@ int	cc_config(t_ulines *head, t_config *id)
 		{
 			res = ft_split(current->line, ',');
 			if (!res)
+			{
+				free_split(res);
 				return (0);
+			}
 			res = clean_colors(res);
 			if (!res)
+			{
+				free_split(res);
 				return (0);
+			}
 			if (range_val(res) && is_only_dig(res))
 			{
 				id->cc = res;
 				return (1);
 			}
+			else
+				free_split(res);
 		}
 		current = current->next;
 	}
@@ -51,15 +59,23 @@ int	cf_config(t_ulines *head, t_config *id)
 		{
 			res = ft_split(current->line, ',');
 			if (!res)
+			{
+				free_split(res);
 				return (0);
+			}
 			res = clean_colors(res);
 			if (!res)
+			{
+				free_split(res);
 				return (0);
+			}
 			if (range_val(res) && is_only_dig(res))
 			{
 				id->cf = res;
 				return (1);
 			}
+			else
+				free_split(res);
 		}
 		current = current->next;
 	}

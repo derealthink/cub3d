@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+         #
+#    By: aielo <aielo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/12 10:35:44 by aielo             #+#    #+#              #
-#    Updated: 2025/07/15 15:16:11 by aielo            ###   ########.fr        #
+#    Updated: 2026/03/05 15:30:19 by aielo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SOURCES = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 			ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 			ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 			ft_lstclear.c ft_lstiter.c ft_lstmap.c \
-			ft_atoi_long.c get_next_line.c ft_strcmp.c
+			ft_atoi_long.c get_next_line.c get_next_line_delimiter.c \
+			ft_strcmp.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: uponci <uponci@student.42berlin.de>        +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/02 10:51:29 by uponci            #+#    #+#             */
-/*   Updated: 2026/03/02 10:51:31 by uponci           ###   ########.fr       */
+/*   Updated: 2026/03/05 16:43:31 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	caller_id(t_ulines *head, t_config *id)
 		|| !ea_config(head, id) || !we_config(head, id))
 	{
 		error_msg(ERR_PARSE_TEX, 1);
+		free_list(head);
 		return (0);
 	}
 	if (!cc_config(head, id) || !cf_config(head, id))

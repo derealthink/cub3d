@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 10:32:01 by aielo             #+#    #+#             */
-/*   Updated: 2025/07/16 16:00:39 by aielo            ###   ########.fr       */
+/*   Updated: 2026/03/05 15:29:57 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 long	ft_atoi_long(const char *nptr);
 char	*get_next_line(int fd);
+char	*get_next_line_delimiter(int fd, char **stash);
 int		ft_strcmp(char *s1, char *s2);
 
 #endif
