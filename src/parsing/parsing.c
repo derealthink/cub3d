@@ -48,6 +48,7 @@ int	caller_id(t_ulines *head, t_config *id)
 	if (!cc_config(head, id) || !cf_config(head, id))
 	{
 		error_msg(ERR_PARSE_COLOR, 1);
+		free_list(head);
 		return (0);
 	}
 	return (1);

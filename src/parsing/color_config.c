@@ -24,16 +24,10 @@ int	cc_config(t_ulines *head, t_config *id)
 		{
 			res = ft_split(current->line, ',');
 			if (!res)
-			{
-				free_split(res);
 				return (0);
-			}
 			res = clean_colors(res);
 			if (!res)
-			{
-				free_split(res);
 				return (0);
-			}
 			if (range_val(res) && is_only_dig(res))
 			{
 				id->cc = res;
@@ -59,16 +53,10 @@ int	cf_config(t_ulines *head, t_config *id)
 		{
 			res = ft_split(current->line, ',');
 			if (!res)
-			{
-				free_split(res);
 				return (0);
-			}
 			res = clean_colors(res);
 			if (!res)
-			{
-				free_split(res);
 				return (0);
-			}
 			if (range_val(res) && is_only_dig(res))
 			{
 				id->cf = res;
