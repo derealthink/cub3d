@@ -26,7 +26,6 @@ int is_three_values(char *line)
         else if (line[i] != '\0')
             return (0);
     }
-    printf("count : %d\n", count);
     return (count == 3);
 }
 
