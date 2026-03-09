@@ -95,7 +95,7 @@ char	**clean_colors(char **arr)
 	int	read;
 	int	write;
 
-	if (!arr)
+	if (!arr || !arr[0])
 		return (NULL);
 	i = 0;
 	while (arr[i])

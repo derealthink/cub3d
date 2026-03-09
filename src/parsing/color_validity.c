@@ -5,6 +5,31 @@ int is_val_chars(char c)
     return((c >= '0' && c <= '9') || c == ' ' || c == ',' || c == '\n');
 }
 
+int is_three_values(char *line)
+{
+    int i;
+    int count;
+
+    i = 0;
+    count = 0;
+    while (line[i])
+    {
+        while (is_space(line[i]))
+            i++;
+        if (!ft_isdigit(line[i]))
+            return (0);
+        while (ft_isdigit(line[i]))
+            i++;
+        count++;
+        if (line[i] == ',' || line[i] == ' ')
+            i++;
+        else if (line[i] != '\0')
+            return (0);
+    }
+    printf("count : %d\n", count);
+    return (count == 3);
+}
+
 int color_check(t_ulines *head)
 {
     t_ulines    *current;
@@ -22,6 +47,8 @@ int color_check(t_ulines *head)
                     return (0);
                 i++;
             }
+            if (!is_three_values(current->line + 2))
+                return (0);
         }
         current = current->next;
     }
