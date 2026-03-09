@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aielo <aielo@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 17:12:14 by aielo             #+#    #+#             */
-/*   Updated: 2026/03/02 14:10:23 by aielo            ###   ########.fr       */
+/*   Updated: 2026/03/09 18:41:43 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 {
 	t_data	game;
 
-	if (argc != 2)
+	if (argc != 2 || ft_strlen(argv[1]) < 3)
 		return (error_msg(ERR_WRONG_INPUT, 1));
 	init_data(&game);
 	if (final_parser(argv[1], &game))
