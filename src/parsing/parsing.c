@@ -21,6 +21,8 @@ int	validate_all(t_valid *d, t_ulines *head)
 		return (0);
 	if (!is_dig_cc(head))
 		return (0);
+	if (!color_check(head))
+		return (0);
 	if (!val_mp_count(head))
 		return (0);
 	if (!is_first_val(head))

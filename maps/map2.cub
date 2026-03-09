@@ -7,8 +7,8 @@ WE ./texture/grey_stone.xpm
 EA ./texture/purple_stone.xpm
 
 
-F 210,0,abcdehfs
-C 100,0,225
+F 23,01,30
+C 100,34,60
 
         1111111111111111111111111
         1000000000110000000000001

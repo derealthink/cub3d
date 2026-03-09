@@ -56,5 +56,6 @@ void		free_split(char **arr);
 int			final_parser(char *filename, t_data *game);
 char		find_player_char(char **map);
 int			validate_player(t_ulines *head);
+int         color_check(t_ulines *head);
 
 #endif
