@@ -6,7 +6,7 @@
 /*   By: aielo <aielo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 14:02:49 by aielo             #+#    #+#             */
-/*   Updated: 2026/03/02 14:17:34 by aielo            ###   ########.fr       */
+/*   Updated: 2026/03/10 13:04:21 by aielo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void		free_split(char **arr);
 int			final_parser(char *filename, t_data *game);
 char		find_player_char(char **map);
 int			validate_player(t_ulines *head);
-int         color_check(t_ulines *head);
+int			color_check(t_ulines *head);
 
 #endif
